@@ -23,7 +23,7 @@ render(request, "file.html", context)
 </div>
 ```
 
-A commonly used method of separating repeated content is using the [`include`](https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#include) directive inside a template.
+A commonly used method of separating repeated content is using the [`include`](https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#include) directive inside a template. This is useful when common UI components are shown in multiple pages - navigation pane, sidebar, footer, etc.
 
 Example:
 
@@ -33,7 +33,8 @@ Example:
 ...
 ```
 
-Follow the second part of: [Django Getting Started Guide Part 3](https://docs.djangoproject.com/en/3.2/intro/tutorial03/)
+
+For detailed step-by-step instructions follow the second part of: [Django Getting Started Guide Part 3](https://docs.djangoproject.com/en/3.2/intro/tutorial03/)
 
 ## Miscellaneous 
 
