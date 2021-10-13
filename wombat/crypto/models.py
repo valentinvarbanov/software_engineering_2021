@@ -1,5 +1,6 @@
 from django.db import models
 
+from rest_framework import serializers
 # Create your models here.
 
 class Currency(models.Model):
@@ -10,3 +11,8 @@ class Currency(models.Model):
 
     def __str__(self):
         return (self.code + " " + str(self.price))
+
+class CurrencySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Currency
+        fields = ["price", "code", "name"]
