@@ -5,6 +5,8 @@ from django.http import HttpResponse
 
 from .models import Currency, CurrencySerializer
 
+import random
+
 # Create your views here.
 
 def index(request):
@@ -28,3 +30,15 @@ def trending_json(request):
     serializer = CurrencySerializer(trending)
 
     return JsonResponse(serializer.data)
+
+def lucky_one(request):
+    random_crypto =  random.choice(Currency.objects.order_by('price')[:3])
+
+    context = {
+        "currency_name" : random_crypto.name,
+        "currency_price" : random_crypto.price,
+        "currency_code" : random_crypto.code,
+        "currency_supply" : random_crypto.supply
+    }
+    
+    return render(request, "luck.html", context)

@@ -6,4 +6,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('trending', views.trending, name='trending'),
     path('api/v1/trending', views.trending_json, name="trending_api"),
+    path('lucky', views.lucky_one, name="lucky_page")
 ]
