@@ -1,4 +1,4 @@
-#Instructions
+# Instructions
 
 In order to create crypto currencies, you should create them via the Python terminal.
 You can enter the mode of this terminal by typing:
