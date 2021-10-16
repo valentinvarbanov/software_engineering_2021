@@ -9,7 +9,7 @@ python3 manage.my shell
 
 Then you will be able to create some crypto currencies. You can use the examples below:
 
-'''
+```
 from crypto.models import Currency
 
 currency1 = Currency(name="Bitcoin", price=55000, code="BTC", supply=10000)
@@ -29,4 +29,4 @@ currency6.save()
 currency7.save()
 
 exit()
-'''
+```
