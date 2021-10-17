@@ -1,0 +1,9 @@
+{% load static %}
+{% include "navigation_bar.html" %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+<h1>Trending:</h1>
+
+<div>
+    The trending currency is: <div class="currency">{{ currency_name }}</div> with a price of {{ currency_price }}
+<div>
