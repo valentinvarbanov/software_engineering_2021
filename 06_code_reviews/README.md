@@ -8,9 +8,23 @@ When multiple people work on a single git repo, often two diverged branches need
 
 Very detailed merge vs rebase explanation https://www.atlassian.com/git/tutorials/merging-vs-rebasing
 
+Tools that visualize the repo graph:
+
+- [Sublime Merge](https://www.sublimemerge.com) - free for evaluation, supports Linux
+- [Sourcetree](https://www.sourcetreeapp.com) - free
+- [Fork](https://git-fork.com) - free for evaluation 
+
 ## GitHub pull request
 
 A pull request provides a workflow for collaborating with team members. This workflow includes code reviews. 
+
+Basic workflow is:
+
+1. Create a branch
+2. Make changes and commit
+3. Push to GitHub
+4. Create a pull request
+5. Once all checks pass merge the pull request
 
 https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
 
