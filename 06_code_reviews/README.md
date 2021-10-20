@@ -60,3 +60,39 @@ After that if queries are executed the raw SQL is outputted to the stdout:
 ```
 
 This allows checking what queries are executed and if they are "good enough".
+
+### Optimizing a query
+
+A query that attempts to find the currency with the smallest market cap. Where cap is calculated by multiplying supply by price.
+
+Lets check the following query:
+
+```python
+all_currencies = list(Currency.objects.all())
+all_currencies_caps = [currency.price * currency.supply for currency in all_currencies]
+
+currency_with_min_cap = all_currencies[all_currencies_caps.index(min(all_currencies_caps))]
+```
+
+On the other hand executed the same end result can be achieved by filtering on the DB end:
+
+```python
+currency_with_min_cap = Currency.objects.order_by(F('price') * F('supply'))[0]
+```
+
+Alternatively for currency with the biggest market cap:
+
+```python
+currency_with_min_cap = Currency.objects.order_by(F('price') * F('supply')).reverse()[0]
+```
+
+By filtering on the DB, large amounts of data is not copied to the the main memory.
+
+```python
+>>> list(Currency.objects.all())
+(0.000) SELECT "crypto_currency"."id", "crypto_currency"."name", "crypto_currency"."price", "crypto_currency"."code", "crypto_currency"."supply" FROM "crypto_currency"; args=()
+
+Currency.objects.order_by(F('price') * F('supply'))[0]
+(0.000) SELECT "crypto_currency"."id", "crypto_currency"."name", "crypto_currency"."price", "crypto_currency"."code", "crypto_currency"."supply" FROM "crypto_currency" ORDER BY ("crypto_currency"."price" * "crypto_currency"."supply") ASC LIMIT 1; args=()
+<Currency: BTT 0.1>
+```
