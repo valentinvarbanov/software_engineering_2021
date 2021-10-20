@@ -42,7 +42,28 @@ Important: Create a pull request with the changes to allow others to review the 
 
 ## Code reviews
 
-TBD: assign reviewers
+|Student| Reviewer 1 | Reviewer 2|
+|-------|------------|-----------|
+| Alexander1022 | Vladikolev0321 | DeniBademi |
+| AngelStoyanov33 | marti456 | Alexander1022 |
+| atanasatanasov03 | Martincho2003 | marto55 |
+| Vic-Dim | AngelStoyanov33 | Martincho2003 |
+| Vicktoria853 | Ivan-Enchev | Vladikolev0321 |
+| Vladikolev0321 | atanasatanasov03 | AngelStoyanov33 |
+| GerganaRoeva | StelianRBG | Vicktoria853 |
+| DeniBademi | marto55 | atanasatanasov03 |
+| elizadamgova | Teodor1331 | StelianRBG |
+| Ivan-Enchev | elizadamgova | VayerMaking |
+| Lilly7777 | DeniBademi | mvvrachev |
+| mvvrachev | Vicktoria853 | elizadamgova |
+| marto55 | Vic-Dim | Teodor1331 |
+| marti456 | GerganaRoeva |  petardmnv |
+| Martincho2003 | Lilly7777 | Ivan-Enchev |
+| VayerMaking | petardmnv | Vic-Dim |
+| petardmnv | VayerMaking | GerganaRoeva |
+| StelianRBG | Alexander1022 | marti456 |
+| Teodor1331 | mvvrachev | Lilly7777 |
+
 
 Try to show things that can be improved in the code, but also note the parts that you like. Aim at giving a balanced code review - state both the parts that are good and those that may be improved.
 
