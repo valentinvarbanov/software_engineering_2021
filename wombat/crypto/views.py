@@ -5,10 +5,29 @@ from django.http import HttpResponse
 
 from .models import Currency, CurrencySerializer
 
+import requests
+
 # Create your views here.
 
+
+# https://api.coindesk.com/v1/bpi/currentprice.json
+
 def index(request):
-    return render(request, "index.html")
+
+    response = requests.get("https://api.coindesk.com/v1/bpi/currentprice.json")
+    response_local = requests.get("https://api.coindesk.com/v1/bpi/currentprice/BGN.json")
+
+    usd = response.json()["bpi"]["USD"]
+    bgn = response_local.json()["bpi"]["BGN"]
+
+    context = {
+        "bitcoin_price" : usd["rate_float"],
+        "bitcoin_price_currency_name" : usd["code"],
+        "bitcoin_price_local" : bgn["rate_float"],
+        "bitcoin_price_currency_name_local" : bgn["code"]
+    }
+
+    return render(request, "index.html", context)
 
 def trending(request):
 
@@ -28,3 +47,4 @@ def trending_json(request):
     serializer = CurrencySerializer(trending)
 
     return JsonResponse(serializer.data)
+
