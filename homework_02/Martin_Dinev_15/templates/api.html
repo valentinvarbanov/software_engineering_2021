@@ -1,0 +1,55 @@
+<meta http-equiv="refresh" content="60">
+<style>
+#first {
+    width: 49%;
+    float:left;
+    text-align: center;
+}
+#second {
+    width: 49%;
+    float: right;
+    text-align: center;
+}
+
+table, tr, th { 
+    border: 2px solid black; 
+    border-collapse: collapse;
+    text-align: center;
+}
+</style>
+
+<body style="background-color: rgba(12, 218, 233, 0.466);">
+    <div id="first">
+        <h1>{{ cur_weekday }}</h1>
+        <h1>Current time</h1>
+    </div>
+    <div id="second">
+        <h1>{{ cur_date }}-{{ cur_month }}-{{ cur_year }}</h1>
+        <h1>{{ cur_time }}</h1>
+    </div>
+    <table style="width:100%;">
+        <tr style="background-color: rgb(233, 250, 0);">
+            <th><h2>Arrival Time</h2></th>
+            <th><h2>Departure Time</h2></th>
+            <th><h2>Direction</h2></th>
+            <th><h2>Vehicle id</h2></th>
+            <th><h2>Status</h2></th>
+        </tr>
+        <tr>
+            {% for d in data.data %}
+            <tr>
+                <th><h4>{{ d.attributes.arrival_time }}</h4></th>
+                <th><h4>{{ d.attributes.departure_time }}</h4></th>
+                <th><h4>{{ d.attributes.direction_id }}</h4></th>
+                <th><h4>{{ d.relationships.vehicle.data.id }}</h4></th>
+
+                {% for status in statuses %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <th><h4>{{ status }}</h4></th>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}    
+        </tr>
+    </table>
+</body>
