@@ -1,0 +1,54 @@
+{% load static %}
+<body style="background-color: #34568b;">
+<head>
+    <h1 style="color: whitesmoke">North station information</h1>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<br>
+
+<div class="datediv" style="margin-left: 600px; color: whitesmoke">
+    <div class="float-child">
+      <div class="day" >{{day}}</div>
+    </div>
+    
+    <div class="float-child">
+      <div class="date">{{date}}</div>
+    </div>
+</div>
+
+<table class="timetable">
+    <thead>
+        <tr style="text-align: center; background-color: #1aa3ff;">
+            <th>Arrival Time</th>
+            <th>Departure Time</th>
+            <th>Vehicle Id</th>
+            <th>Route</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            {% for d in data.data %}
+            <tr>
+                <td>{{ d.attributes.arrival_time }}</td>
+                <td>{{ d.attributes.departure_time }}</td>
+                <td>{{ d.relationships.vehicle.data.id }}</td>
+
+                {% for r in routes %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <td>{{r}}</td>
+                    {% endif %}
+                {% endfor %}
+
+                {% for item in statuses %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <td>{{item}}</td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}    
+        </tr>
+    </tbody>
+</table>
+</body>
