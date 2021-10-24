@@ -1,0 +1,24 @@
+
+<h2>{{ current_time }}</h2>
+<table>
+    <tr>
+        <th>Time</th>
+        <th>Destination</th>
+        <th>Train#</th>
+        <th>Track#</th>
+        <th>Status</th>
+    </tr>
+
+    {% for value in display_items %}
+
+    <tr>
+        <td>{{ value.time }}</td>
+        <td>{{ value.destination }}</td>
+        <td>{{ value.train }}</td>
+        <td>{{ value.track }}</td>
+        <td>{{ value.status }}</td>
+    </tr>
+
+    {% endfor %}
+
+</table>
