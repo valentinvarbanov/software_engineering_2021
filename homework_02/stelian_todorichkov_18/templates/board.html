@@ -1,0 +1,41 @@
+{% load static %}
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    </head>
+
+    <table>
+        <thead>
+            <tr>
+                <td>Arrival Time</td>
+                <td>Departure Time</td>
+                <td>Vehicle Id</td>
+                <td>Route</td>
+                <td>Status</td>
+            </tr>
+
+        </thead>
+        <tbody>
+            {% for d in data.data %}
+            <tr>
+                <td>{{ d.attributes.arrival_time }}</td>
+                <td>{{ d.attributes.departure_time }}</td>
+                <td>{{ d.relationships.vehicle.data.id }}</td>
+
+                {% for route in routes %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <td>{{ route }}</td>
+                    {% endif %}
+                {% endfor %}
+
+                {% for status in statuses %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <td>{{ status }}</td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}    
+        </tbody>
+    </table>
+</html>
