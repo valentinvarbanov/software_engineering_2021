@@ -1,0 +1,45 @@
+
+{% load static%}
+<html>
+    <head>
+        <title>-Timetable-</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <div class="container">
+            <h1>{{ time_day }}</h1>
+            <h1>{{ now_time }}</h1>
+            <table>
+            <thead>
+                <tr>
+                    <th>Arrival Time</th>
+                    <th>Departure Time</th>
+                    <th>Train#</th>
+                    <th>Track#</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+           
+            <tbody>
+                <tr>
+                    {% for row in data %}
+                    <tr>
+                        {% for cell in row %}
+                            <td>{{ cell }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}    
+                </tr>
+            </tbody>
+            
+        </table>
+        </div>
+        
+    </body>
+</html>
