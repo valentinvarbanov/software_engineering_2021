@@ -1,0 +1,67 @@
+<html>
+
+<style type="text/css">
+
+table
+{ 
+  margin-right: auto;
+  margin-left: auto;
+  right: 0;
+  left: 0;
+  width: 140%;
+  font-size:150%
+}
+
+table tr th, table tr td
+{ background: #004662;
+  color: #FFF;
+  padding: 7px 4px;
+  text-align: left;}
+  
+table tr td
+{ background: #EAFAFF;
+  color: #47433F;
+  border-top: 1px solid #FFF;
+}
+
+</style>
+<head>
+    <meta charset="utf-8">
+    <title>timetable</title>
+</head>
+<body>
+    <div>
+        <h1>{{ cur_weekday }}</h1>
+        <h1>{{ cur_date }}-{{ cur_month }}-{{ cur_year }}</h1>
+        <h1>{{ cur_time }}</h1>
+    </div>
+
+    <table style="width: 100%;">
+        <tr>
+            <th><h2>Arrival Time</h2></th>
+            <th><h2>Departure Time</h2></th>
+            <th><h2>Direction</h2></th>
+            <th><h2>Vehicle id</h2></th>
+            <th><h2>Status</h2></th>
+        </tr>
+        <tr>
+            {% for d in data.data %}
+            <tr>
+                <th><h4>{{ d.attributes.arrival_time }}</h4></th>
+                <th><h4>{{ d.attributes.departure_time }}</h4></th>
+                <th><h4>{{ d.attributes.direction_id }}</h4></th>
+                <th><h4>{{ d.relationships.vehicle.data.id }}</h4></th>
+
+                {% for status in statuses %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <th><h4>{{ status }}</h4></th>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}    
+        </tr>
+    </table>
+</body>
+
+
+</html>
