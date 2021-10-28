@@ -16,6 +16,10 @@ table, tr, th {
     border-collapse: collapse;
     text-align: center;
 }
+
+tr {
+    background-color: rgb(105, 205, 241);
+}
 </style>
 
 <body style="background-color: rgba(12, 218, 233, 0.466);">
@@ -28,20 +32,32 @@ table, tr, th {
         <h1>{{ cur_time }}</h1>
     </div>
     <table style="width:100%;">
-        <tr style="background-color: rgb(233, 250, 0);">
-            <th><h2>Arrival Time</h2></th>
-            <th><h2>Departure Time</h2></th>
-            <th><h2>Direction</h2></th>
-            <th><h2>Vehicle id</h2></th>
+        <tr style="background-color: rgb(255, 111, 231);">
+            <th><h2>Time</h2></th>
+            <th><h2>Destination</h2></th>
+            <th><h2>Train#</h2></th>
             <th><h2>Status</h2></th>
         </tr>
         <tr>
-            {% for d in data.data %}
+            {% for d in trips %}
             <tr>
-                <th><h4>{{ d.attributes.arrival_time }}</h4></th>
-                <th><h4>{{ d.attributes.departure_time }}</h4></th>
-                <th><h4>{{ d.attributes.direction_id }}</h4></th>
-                <th><h4>{{ d.relationships.vehicle.data.id }}</h4></th>
+                {% for time in dest_times %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <th><h4>{{ time }}</h4></th>
+                    {% endif %}
+                {% endfor %}
+
+                {% for direction in directions %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <th><h4>{{ direction }}</h4></th>
+                    {% endif %}
+                {% endfor %}
+                
+                {% for id in vehicle_ids %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <th><h4>{{ id }}</h4></th>
+                    {% endif %}
+                {% endfor %}
 
                 {% for status in statuses %}
                     {% if forloop.counter == forloop.parentloop.counter %}
