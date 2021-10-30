@@ -1,48 +1,67 @@
-from django.http import HttpResponse, response
-from django.http.response import JsonResponse
 from django.shortcuts import render
-
-from requests.models import ContentDecodingError
 
 import requests
 from datetime import datetime
-import json
+from pytz import timezone
 
 def board(request):
-    response = requests.get('https://api-v3.mbta.com/predictions?page%5Boffset%5D=0&page%5Blimit%5D=10&sort=-departure_time&filter%5Bstop%5D=place-north')
 
-    response_json = response.json()
+    params = {
+        'page[offset]': '0',
+        'page[limit]': '10',
+        'include': 'trip,schedule',
+        'filter[stop]': 'place-north',
+        'filter[route_type]': '2', # rail
+        'filter[direction_id]': 0, # only departure
+    }
 
-    routes = []
-    vehicle_status = []
+    response = requests.get('https://api-v3.mbta.com/predictions', params=params).json()
 
-    for i in response_json['data']:
-        try:
-            stop_id = request.get('https://api-v3.mbta.com/stops/' + i['relationships']['stop']['data']['id'])
-            route = stop_id.json()['data']['attributes']['description']
-            routes.append(route)
-        except:
-            routes.append("No route")
+    list = []
+    
+    # get statuses
+    for data in response['data']:
+        dict = {}
+        dict['status'] = data['attributes']['status']
+        list.append(dict)
+    
+    i = 0
+    for data in response['included']:
+        if i == len(list):
+            i = 0
+        if data['type'] == 'trip':
+            # get train ids
+            list[i]['train'] = data['attributes']['name']
+            #get destinations
+            list[i]['destination'] = data['attributes']['headsign']
+        if data['type'] == 'schedule':
+            #get departure times
+            list[i]['time'] = data['attributes']['departure_time']
+        i+=1
 
-    for i in response_json['data']:
-        try:
-            vehicle_id = requests.get('https://api-v3.mbta.com/vhicles/' + i['relationships']['vehicles']['data']['id'])
-            status = vehicle_id.json()['data']['attributes']['current_srtatus']
-            vehicle_status.append(status)
-        except:
-            vehicle_status.append('No status')
+    # sort list by time
+    for i in range(0, len(list)):
+        for k in range(i+1, len(list)):
+            
+            if list[i]['time'] > list[k]['time']:
+                dict = list[i]
+                list[i] = list[k]
+                list[k] = dict
+
+    # format time 
+    for el in list:
+        el['time'] = datetime.fromisoformat(el['time']).astimezone(timezone('America/New_York')).strftime('%I:%M %p')
+               
+
+       
 
 
-    cur_time = datetime.now()
+
+    cur_time = datetime.now().astimezone(timezone('America/New_York')).strftime('%I:%M:%S %p')
 
     context = {
-        'day' : cur_time.strftime("%A"),
-        'date' : cur_time.strftime("%D-%M-%Y"),
-        'time' : cur_time.strftime("%H:%M"),
-
-        'data' : response_json,
-        'routes' : routes,
-        'statuses' : vehicle_status,
+        'data': list,
+        'time': cur_time
     }
 
     return render(request, "board.html", context)
