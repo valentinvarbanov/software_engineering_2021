@@ -1,0 +1,40 @@
+.timetable {
+    border-collapse: collapse;
+    
+    margin: 25px 0;
+    margin-left: auto; 
+    margin-right: auto;
+    font-size: 0.9em;
+    font-family: sans-serif;
+
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.timetable thead tr {
+    color: #ffffff;
+
+}
+.timetable th,
+.timetable td {
+    padding: 12px 15px;
+}
+.timetable tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+.timetable tbody tr{/*:nth-of-type(even) {*/
+    background-color: #ebebeb;
+}
+.timetable tbody tr:last-of-type {
+    border-bottom: 2px solid #dbe0df;
+}
+
+h1 {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    text-align: center;
+}
+
+.datediv {
+    margin-top: 10px; 
+    font-family: Lucida Console;
+}
