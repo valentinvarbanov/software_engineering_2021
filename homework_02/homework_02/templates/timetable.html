@@ -16,34 +16,41 @@
     </div>
 </div>
 
-<table class="timetable">
+<table class="timetable" style="width: 70%;">
     <thead>
         <tr style="text-align: center; background-color: #1aa3ff;">
             <th>Arrival Time</th>
-            <th>Departure Time</th>
-            <th>Vehicle Id</th>
-            <th>Route</th>
+            <th>Destination</th>
+            <th>Train Number</th>
             <th>Status</th>
         </tr>
     </thead>
 
-    <tbody>
+    <tbody style="text-align: center;">
         <tr>
             {% for d in data.data %}
             <tr>
-                <td>{{ d.attributes.arrival_time }}</td>
-                <td>{{ d.attributes.departure_time }}</td>
-                <td>{{ d.relationships.vehicle.data.id }}</td>
-
-                {% for r in routes %}
+                {% for at in arrivals %}
                     {% if forloop.counter == forloop.parentloop.counter %}
-                        <td>{{r}}</td>
+                        <td>{{at}}</td>
                     {% endif %}
                 {% endfor %}
 
-                {% for item in statuses %}
+                {% for d in destinations %}
                     {% if forloop.counter == forloop.parentloop.counter %}
-                        <td>{{item}}</td>
+                        <td>{{d}}</td>
+                    {% endif %}
+                {% endfor %}
+
+                {% for tn in trainNums %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <td>{{tn}}</td>
+                    {% endif %}
+                {% endfor %}
+
+                {% for status in statuses %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <td>{{status}}</td>
                     {% endif %}
                 {% endfor %}
             </tr>
