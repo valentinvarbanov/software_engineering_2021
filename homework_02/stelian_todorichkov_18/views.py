@@ -38,14 +38,8 @@ def board(request):
                 el['time'] = data['attributes']['departure_time']
 
     # sort list by time
-    for i in range(0, len(list)):
-        for k in range(i+1, len(list)):
-            
-            if list[i]['time'] > list[k]['time']:
-                dict = list[i]
-                list[i] = list[k]
-                list[k] = dict
-
+    list = sorted(list, key = lambda i: i['time'])
+    
     # format time 
     for el in list:
         el['time'] = datetime.fromisoformat(el['time']).strftime('%I:%M %p')
