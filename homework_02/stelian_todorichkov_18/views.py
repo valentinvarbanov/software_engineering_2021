@@ -5,7 +5,8 @@ from datetime import datetime
 from pytz import timezone
 
 def board(request):
-
+    
+    #param for requst
     params = {
         'page[offset]': '0',
         'page[limit]': '10',
@@ -15,8 +16,10 @@ def board(request):
         'filter[direction_id]': '0', # only departure
     }
 
+    #make get request to get json data from API
     response = requests.get('https://api-v3.mbta.com/predictions', params=params).json()
 
+    # list for all arguments (time, destination, train#, track#, status)
     list = []
     
     # get statuses, trip and stop ids
@@ -40,11 +43,11 @@ def board(request):
                 el['time'] = data['attributes']['departure_time']
                 break
             if data['type'] == 'stop' and el['stop_id'] == data['id']:
+                #get track
                 if data['attributes']['platform_code'] is None:
                    el['track'] = 'TBD'
                 else: 
                     el['track'] = data['attributes']['platform_code']
-
 
     # sort list by time
     list = sorted(list, key = lambda i: i['time'])
@@ -52,14 +55,14 @@ def board(request):
     # format time 
     for el in list:
         el['time'] = datetime.fromisoformat(el['time']).strftime('%I:%M %p')
-        
+
+    # get curr time with timezone New Yourk   
     cur_time = datetime.now().astimezone(timezone('America/New_York')).strftime('%I:%M:%S %p')
 
+    # data for send to HTML
     context = {
         'data': list,
         'time': cur_time,
     }
 
     return render(request, "board.html", context)
-
-
