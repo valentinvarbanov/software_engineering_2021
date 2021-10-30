@@ -1,7 +1,5 @@
 # Installation Instructions
 
-### **Important**: *If someone write his/her homework like me, I will write a complaint to Mrs. Stella Stefanova!*
-
 The new project can be created via the next command:
 
 ```

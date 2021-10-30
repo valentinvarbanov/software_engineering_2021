@@ -31,37 +31,13 @@
 
     <tbody>
         <tr>
-            {% for unit in data.data %}
+            {% for train_information in trains_informations %}
             <tr>
-                {% for departure_time in departure_times %}
-                    {% if forloop.counter == forloop.parentloop.counter %}
-                        <td>{{ departure_time }}</td>
-                    {% endif %}
-                {% endfor %}
-
-                {% for destination in destinations %}
-                    {% if forloop.counter == forloop.parentloop.counter %}
-                        <td>{{ destination }}</td>
-                    {% endif %}
-                {% endfor %}
-
-                {% for train in trains %}
-                    {% if forloop.counter == forloop.parentloop.counter %}
-                        <td>{{ train }}</td>
-                    {% endif %}
-                {% endfor %}
-
-                {% for track in tracks %}
-                    {% if forloop.counter == forloop.parentloop.counter %}
-                        <td>{{ track }}</td>
-                    {% endif %}
-                {% endfor %}
-
-                {% for status in statuses %}
-                    {% if forloop.counter == forloop.parentloop.counter %}
-                    <td>{{ status }}</td>
-                    {% endif %}
-                {% endfor %}
+                <td>{{ train_information.0 }}</td>
+                <td>{{ train_information.1 }}</td>
+                <td>{{ train_information.2 }}</td>
+                <td>{{ train_information.3 }}</td>
+                <td>{{ train_information.4 }}</td>
             </tr>
             {% endfor %}    
         </tr>

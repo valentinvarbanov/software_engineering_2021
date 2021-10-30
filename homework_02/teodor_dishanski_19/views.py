@@ -9,6 +9,7 @@ import requests
 import datetime
 import pytz
 
+
 # Create your views here.
 
 def train_board(request) -> HttpResponse:
@@ -25,6 +26,8 @@ def train_board(request) -> HttpResponse:
     }
 
     response = requests.get("https://api-v3.mbta.com/predictions", params=params).json()
+
+    trains_informations = list()
 
     departure_times =   list()
     destinations    =   list()
@@ -53,60 +56,33 @@ def train_board(request) -> HttpResponse:
             prediction['trip'] = records[prediction['relationships']['trip']['data']['id']]
             prediction['departure'] = prediction['attributes']['departure_time'] or prediction['schedule']['attributes']['departure_time']
 
-
         for prediction in response['data']:
             #   We append to the specific list the specific attribute we need.
             #   The number of the track may be more specific because of the code / name
             #   recognition. We decide this problem by getting the platform code
-            #   or the platform name if there is no still a decided code for the platform.
+            #   or TBD (To Be Decided) if there isn't a decided code for the platform yet.
 
-            departure_times.append(prediction['departure'])
-            destinations.append(prediction['trip']['attributes']['headsign'])
-            trains.append(prediction['trip']['attributes']['name'])
-            tracks.append(prediction['stop']['attributes']['platform_code'] or prediction['stop']['attributes']['platform_name'])
-            statuses.append(prediction['attributes']['status'])
+            train_information = list()
 
+            train_information.append(prediction['departure'])
+            train_information.append(prediction['trip']['attributes']['headsign'])
+            train_information.append(prediction['trip']['attributes']['name'])
+            train_information.append(prediction['stop']['attributes']['platform_code'] or "TBD")
+            train_information.append(prediction['attributes']['status'])
+
+            trains_informations.append(train_information)
 
         #   We change the format of all departure times.
 
-        for i in range(len(departure_times)):
-            departure_times[i] = departure_times[i][11:19]
-            departure_times[i] = d_t.strptime(departure_times[i], "%H:%M:%S").time()
-            departure_times[i] = departure_times[i].strftime("%I:%M %p")
-
-        #   We check if the track of the current train is with a number.
-        #   If it is not, this means it is still TBD (To Be Decided).
-
-        for i in range(len(tracks)):
-            if tracks[i] == "Commuter Rail":
-                tracks[i] = "TBD"
-
+        for i in range(len(trains_informations)):
+            trains_informations[i][0] = trains_informations[i][0][11:19]
+            trains_informations[i][0] = d_t.strptime(trains_informations[i][0], "%H:%M:%S").time()
+            trains_informations[i][0] = trains_informations[i][0].strftime("%I:%M %p")
 
         #   We sort the information of the trains by their departure times.
         #   If we do not make the sort in all lists, we will get wrong order.
 
-        for i in range(0, len(departure_times)):
-            for j in range(i + 1, len(departure_times)):
-                if departure_times[i] > departure_times[j]:
-                    departure_time = departure_times[i]
-                    departure_times[i] = departure_times[j]
-                    departure_times[j] = departure_time
-
-                    destination = destinations[i]
-                    destinations[i] = destinations[j]
-                    destinations[j] = destination
-
-                    train = trains[i]
-                    trains[i] = trains[j]
-                    trains[j] = train
-
-                    track = tracks[i]
-                    tracks[i] = tracks[j]
-                    tracks[j] = track
-
-                    status = statuses[i]
-                    statuses[i] = statuses[j]
-                    statuses[j] = status
+        trains_informations.sort(key=lambda x: x[0])
 
     context = {
         'day': current_time.strftime("%A"),
@@ -118,7 +94,8 @@ def train_board(request) -> HttpResponse:
         'destinations': destinations,
         'trains': trains,
         'tracks': tracks,
-        'statuses': statuses
+        'statuses': statuses,
+        'trains_informations': trains_informations
     }
 
     return render(request, "train_board.html", context)
