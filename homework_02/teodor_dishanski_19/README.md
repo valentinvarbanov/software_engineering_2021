@@ -1,5 +1,7 @@
 # Installation Instructions
 
+### **Important**: *If I someone write his/her homework like me, I will write a complaint to Mrs. Stella Stefanova!*
+
 The new project can be created via the next command:
 
 ```
@@ -11,4 +13,3 @@ This command will create a new folder in the current project. This will be the n
 An example image of the development of the *Train Station Departure Board*:
 
 <img src="images/Example_Table.png">
-

@@ -1,6 +1,6 @@
 body {
     background: lightcyan;
-    font-family: "Arial, Helvetica", sans-serif;
+    font-family: "Times New Roman", Times, serif;
 }
 
 h1, .datetime {
@@ -17,7 +17,7 @@ h1, .datetime {
     margin-left: auto; 
     margin-right: auto;
     text-align: center;
-    font-family: 'Arial, Helvetica', sans-serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .train_board thead tr {

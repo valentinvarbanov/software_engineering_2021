@@ -21,31 +21,45 @@
 <table class="train_board">
     <thead>
         <tr style="background-color: blue;">
-            <th>Arrival Time</th>
-            <th>Departure Time</th>
-            <th>Vehicle Id</th>
-            <th>Route</th>
+            <th>Time</th>
+            <th>Destination</th>
+            <th>Train</th>
+            <th>Track</th>
             <th>Status</th>
         </tr>
     </thead>
 
     <tbody>
         <tr>
-            {% for d in data.data %}
+            {% for unit in data.data %}
             <tr>
-                <td>{{ d.attributes.arrival_time }}</td>
-                <td>{{ d.attributes.departure_time }}</td>
-                <td>{{ d.relationships.vehicle.data.id }}</td>
-
-                {% for route in routes %}
+                {% for departure_time in departure_times %}
                     {% if forloop.counter == forloop.parentloop.counter %}
-                        <td>{{ route }}</td>
+                        <td>{{ departure_time }}</td>
+                    {% endif %}
+                {% endfor %}
+
+                {% for destination in destinations %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <td>{{ destination }}</td>
+                    {% endif %}
+                {% endfor %}
+
+                {% for train in trains %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <td>{{ train }}</td>
+                    {% endif %}
+                {% endfor %}
+
+                {% for track in tracks %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <td>{{ track }}</td>
                     {% endif %}
                 {% endfor %}
 
                 {% for status in statuses %}
                     {% if forloop.counter == forloop.parentloop.counter %}
-                        <td>{{ status }}</td>
+                    <td>{{ status }}</td>
                     {% endif %}
                 {% endfor %}
             </tr>
