@@ -27,15 +27,8 @@ def train_board(request) -> HttpResponse:
 
     response = requests.get("https://api-v3.mbta.com/predictions", params=params).json()
 
-    trains_informations = list()
-
-    departure_times =   list()
-    destinations    =   list()
-    trains          =   list()
-    tracks          =   list()
-    statuses        =   list()
-
-    records    =   {}
+    trains_informations =   []
+    records             =   {}
 
     if (response['included']):
         #   We make a record in the dictionary by the id of the current record.
@@ -87,14 +80,8 @@ def train_board(request) -> HttpResponse:
     context = {
         'day': current_time.strftime("%A"),
         'date': current_time.strftime("%m - %d - %Y"),
-        'time': current_time.strftime("%H:%M"),
+        'time': current_time.strftime("%I:%M %p"),
 
-        'data': response,
-        'departure_times': departure_times,
-        'destinations': destinations,
-        'trains': trains,
-        'tracks': tracks,
-        'statuses': statuses,
         'trains_informations': trains_informations
     }
 
