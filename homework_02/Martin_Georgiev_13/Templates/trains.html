@@ -1,0 +1,73 @@
+<style>
+    #time {
+        border-radius: 25px;
+        width: 50%;
+        float: center;
+        text-align: center;
+        background-color:rgb(224, 115, 42);
+        height: auto;
+        margin: 0 auto;
+        padding: 10px;
+        position: relative;
+    }
+    table, tr, th { 
+        border: 2px solid rgb(94, 53, 0); 
+        border-collapse: collapse;
+        text-align: center;
+        margin: 0 auto;
+
+    }
+</style>
+    
+<body>
+    <br>
+    <div id="time">
+        <div style= "float: center;">
+
+            <h1>Current time : {{ day }}-{{ month }}-{{ year }} | {{ time }}</h1>
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <table style="width:60%;">
+        <tr style="background-color: rgb(250, 183, 0);">
+            <th><h2>Arrival Time</h2></th>
+            <th><h2>Departure Time</h2></th>
+            <th><h2>Vehicle id</h2></th>
+            <th><h2>Status</h2></th>
+        </tr>
+        <tr >
+            {% for i in trips %}
+            <tr style="background-color: rgb(248, 239, 152);">
+                {% for time in destination_times %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <th><h4>{{ time }}</h4></th>
+                    {% endif %}
+                {% endfor %}
+
+                {% for direction in directions %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <th><h4>{{ direction }}</h4></th>
+                    {% endif %}
+                {% endfor %}
+
+                {% for id in train_ids %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <th><h4>{{ id }}</h4></th>
+                    {% endif %}
+                {% endfor %}
+
+                {% for status in statuses %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <th><h4>{{ status }}</h4></th>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}    
+        </tr>
+    </table>
+    <br>
+    <br>
+    <br>
+</body> 
