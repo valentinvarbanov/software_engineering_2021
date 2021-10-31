@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'stelian_todorichkov_18'
+    'vladislav_kolev_06',
+    'stelian_todorichkov_18',
     'Martin_Georgiev_13'
 ]
 
