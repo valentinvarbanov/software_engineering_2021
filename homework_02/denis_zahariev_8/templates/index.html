@@ -16,27 +16,27 @@
             <h1>{{ time_day }}</h1>
             <h1>{{ now_time }}</h1>
             <table>
-            <thead>
-                <tr>
-                    <th>Arrival Time</th>
-                    <th>Departure Time</th>
-                    <th>Train#</th>
-                    <th>Track#</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-           
-            <tbody>
-                <tr>
-                    {% for row in data %}
+                <thead>
                     <tr>
-                        {% for cell in row %}
-                            <td>{{ cell }}</td>
-                        {% endfor %}
+                        <td>TIME</td>
+                        <td>DESTINATION</td>
+                        <td>TRAIN#</td>
+                        <td>TRACK#</td>
+                        <td>STATUS</td>
                     </tr>
-                    {% endfor %}    
-                </tr>
-            </tbody>
+                </thead>
+                <tbody>
+                    {% for el in data %}
+                        <tr>
+                            <td>{{ el.time }}</td>
+                            <td>{{ el.destination }}</td>
+                            <td>{{ el.train }}</td>
+                            <td>{{ el.track }}</td>
+                            <td>{{ el.status }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
             
         </table>
         </div>
