@@ -32,12 +32,7 @@ def departure_board(request):
         destinations.append(dest.json()['data']['attributes']['headsign'])
         train_no.append(dest.json()['data']['attributes']['name'])
 
-# I get KeyError for some reason
-#    for req in response['data']:
-#       track = requests.get('https://api-v3.mbta.com/stops/' + req['relationships']['stop']['data']['id'])
-#        track_no.append(track.json()['data']['attributes']['platform_code'])
-
-
+        
     context = {
         'weekday': weekday,
         'date': date,
@@ -49,6 +44,3 @@ def departure_board(request):
     }
 
     return render(request, "departure_board.html", context)
-
-
-   # params = {'page[offset]': '0', 'page[limit]': '10', 'sort': 'departure_time', 'include': 'trip,schedule,stop', 'filter[stop]': 'place-north', 'filter[route_type]': '2'}
