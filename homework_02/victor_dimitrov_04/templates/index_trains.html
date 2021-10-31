@@ -30,6 +30,7 @@
                 <th>Departure Time</th>
                 <th>Destination</th>
                 <th>Status</th>
+                <th>Track</th>
             </tr>
 
             {% for train in context%}
@@ -38,6 +39,7 @@
                 <td>{{train.time}}</td>
                 <td>{{train.route}}</td>
                 <td>{{train.status}}</td>
+                <td>{{train.track}}</td>
             </tr>
     
             {% endfor %}
