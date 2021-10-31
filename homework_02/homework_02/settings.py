@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'vladislav_kolev_06',
     'stelian_todorichkov_18',
     'Martin_Georgiev_13'
+    'teodor_dishanski_19'
 ]
 
 MIDDLEWARE = [
