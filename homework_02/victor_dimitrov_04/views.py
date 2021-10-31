@@ -18,8 +18,7 @@ def trains(request):
 
     response = requests.get('https://api-v3.mbta.com/predictions', params=initial_filters).json()
 
-    trains = []
-    trip_ids = []
+    trains, trip_ids = [], []
 
     for element in response['data']:
         train_info = {}
@@ -46,7 +45,5 @@ def trains(request):
 
     data = {}
     data["context"] = trains
-
-    #departure['attributes']['arrival_time'] or departure['attributes']['departure_time']
 
     return render(request, "index_trains.html", data)
