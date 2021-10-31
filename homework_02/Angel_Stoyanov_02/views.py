@@ -1,46 +1,81 @@
+import datetime
+import pytz
+
+import requests as requests_api
 from django.shortcuts import render
 
-import datetime
-import requests as requests_api
+FETCH_PREDICTIONS_URI = 'https://api-v3.mbta.com/predictions'
 
-FETCH_PREDICTIONS_URI = 'https://api-v3.mbta.com/predictions?page%5Boffset%5D=0&page%5Blimit%5D=10&sort=-departure_time&filter%5Bstop%5D=place-north'
-FETCH_VEHICLE_URI = 'https://api-v3.mbta.com/vehicles/'
-FETCH_STOP_URI = 'https://api-v3.mbta.com/stops/'
+params = {
+    'page[offset]': '0',
+    'page[limit]': '10',
+    'sort': 'departure_time',
+    'include': 'trip,schedule',
+    'filter[stop]': 'place-north',
+    'filter[route_type]': '2'
+}
 
 
 def index(request):
-    r = requests_api.get(FETCH_PREDICTIONS_URI)
+    r = requests_api.get(FETCH_PREDICTIONS_URI, params=params)
     data_object = r.json()['data']
+    included_object = r.json()['included']
+
+    m_time = pytz.timezone('America/New_York')
 
     destinations = list()
     statuses = list()
+    arrival_times = list()
+    train_names = list()
+    trip_ids_buffer = list()
 
     for _ in data_object:
         try:
-            vehicle_id = _['relationships']['vehicle']['data']['id']
-            vehicle_attributes = requests_api.get(FETCH_VEHICLE_URI + str(vehicle_id)).json()['data']['attributes']
+            trip_ids_buffer.append(_['relationships']['trip']['data']['id'])
+        except Exception:
+            trip_ids_buffer.append('-')
 
-            statuses.append(vehicle_attributes['current_status'])
+    for _ in data_object:
+        try:
+            statuses.append(_['attributes']['status'])
         except Exception:
             statuses.append('-')
 
-    for _ in data_object:
-        try:
-            stop_id = _['relationships']['stop']['data']['id']
-            stop_attributes = requests_api.get(FETCH_STOP_URI + str(stop_id)).json()['data']['attributes']
+    for _ in included_object:
+        if 'trip' == _['type']:
+            for __ in trip_ids_buffer:
+                try:
+                    if __ == _['id']:
+                        destinations.append(_['attributes']['headsign'])
+                except Exception:
+                    destinations.append('-')
 
-            destinations.append(stop_attributes['name'] + ' - ' + stop_attributes['platform_name'])
-        except Exception:
-            destinations.append('-')
+            for __ in trip_ids_buffer:
+                try:
+                    if __ == _['id']:
+                        train_names.append(_['attributes']['name'])
+                except Exception:
+                    train_names.append('-')
 
-    __date = datetime.datetime.now()
+        if 'schedule' == _['type']:
+            for __ in trip_ids_buffer:
+                try:
+                    if __ == _['relationships']['trip']['data']['id'] and _['attributes']['arrival_time'] is not None:
+                        arrival_time = datetime.datetime.strptime(_['attributes']['arrival_time'],'%Y-%m-%dT%H:%M:%S%f%z')
+                        stripped = arrival_time.strftime('%I:%M %p')
+                        arrival_times.append(stripped)
+                except Exception:
+                    arrival_times.append('-')
+
+    __date = datetime.datetime.now(m_time)
     _date = __date.strftime('%d %b %Y')
     _time = __date.strftime('%H:%M:%S')
 
     context = {
         'destinations': destinations,
         'statuses': statuses,
-        'main_response': data_object,
+        'train_names': train_names,
+        'arrival_times': arrival_times,
         'date': _date,
         'time': _time
     }

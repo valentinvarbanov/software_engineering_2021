@@ -29,42 +29,35 @@
 					<thead class="thead-dark">
 						<tr>
 							<th scope="col">AT</th>
-							<th scope="col">DT</th>
 							<th scope="col">Train #</th>
 							<th scope="col">Destination</th>
 							<th scope="col">Status</th>
-							<th scope="col">Direction</th>
 						</tr>
 					</thead>
 					<tbody>
-            {% for r in main_response %}
+            {% for arrival_time in arrival_times %}
 						<tr>
-							<td style ="word-break:break-all;">{{ r.attributes.arrival_time }}</td>
-							<td style ="word-break:break-all;">{{ r.attributes.departure_time }}</td>
-							<td style ="word-break:break-all;">{{ r.relationships.vehicle.data.id }}</td>
+							<td style ="word-break:break-all;">{{ arrival_time }}</td>
+
+                {% for train_name in train_names %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+							<td style ="word-break:break-all;">{{ train_name }}</td>
+                    {% endif %}
+                {% endfor %}
+
 
                 {% for destination in destinations %}
                     {% if forloop.counter == forloop.parentloop.counter %}
-
 							<td style ="word-break:break-all;">{{ destination }}</td>
                     {% endif %}
                 {% endfor %}
 
                 {% for status in statuses %}
                     {% if forloop.counter == forloop.parentloop.counter %}
-
 							<td style ="word-break:break-all;">{{ status }}</td>
                     {% endif %}
                 {% endfor %}
 
-                {%  if r.direction_id == 1 %}
-
-							<td style ="word-break:break-all;"> ></td>
-                    {% else %}
-
-							<td style ="word-break:break-all;"><
-							</td>
-                {% endif %}
             {% endfor %}
 
 						</tr>
