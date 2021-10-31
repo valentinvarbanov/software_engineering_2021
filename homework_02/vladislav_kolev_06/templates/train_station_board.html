@@ -21,32 +21,22 @@
 <table>
     <thead>
         <tr >
-            <th>Arrival Time</th>
             <th>Departure Time</th>
-            <th>Vehicle Id</th>
-            <th>Route</th>
+            <th>Destination</th>
+            <th>Train#</th>
+            <th>Track#</th>
             <th>Status</th>
         </tr>
     </thead>
 
     <tbody>
-            {% for d in data.data %}
+            {% for trip in trips %}
             <tr>
-                <td>{{ d.attributes.arrival_time }}</td>
-                <td>{{ d.attributes.departure_time }}</td>
-                <td>{{ d.relationships.vehicle.data.id }}</td>
-
-                {% for destination in destinations %}
-                    {% if forloop.counter == forloop.parentloop.counter %}
-                        <td>{{ destination }}</td>
-                    {% endif %}
-                {% endfor %}
-
-                {% for status in vehicle_statuses %}
-                    {% if forloop.counter == forloop.parentloop.counter %}
-                        <td>{{ status }}</td>
-                    {% endif %}
-                {% endfor %}
+                <td>{{ trip.date }}</td>
+                <td>{{ trip.destination }}</td>
+                <td>{{ trip.train_id }}</td>
+                <td>{{ trip.track }}</td>
+                <td>{{ trip.status }}</td>
             </tr>
             {% endfor %}
     </tbody>
