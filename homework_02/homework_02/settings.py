@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'vladislav_kolev_06',
     'stelian_todorichkov_18',
-    'Martin_Georgiev_13'
+    'Martin_Georgiev_13',
+    'petar_damyanov_17'
 ]
 
 MIDDLEWARE = [
