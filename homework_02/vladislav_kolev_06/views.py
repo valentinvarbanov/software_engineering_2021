@@ -66,7 +66,7 @@ def index(request):
             for index in range(0, len(trips)):
                 if included['id'] == trips[index]['stop_id']:
                     if included['attributes']['platform_code']:
-                        trips['track'] = included['attributes']['platform_code']
+                        trips[index]['track'] = included['attributes']['platform_code']
                     else: 
                         trips[index]['track'] = 'TBD'
 
