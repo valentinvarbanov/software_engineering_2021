@@ -19,8 +19,6 @@ def index(request):
     response = requests.get('https://api-v3.mbta.com/predictions', params=params)
     json_response = response.json()
 
-    print(json_response)
-
     trips = [] # list of dictionaries
 
     # getting trip indexes
