@@ -34,6 +34,7 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     'crypto.apps.CryptoConfig',
+    'trains.apps.TrainsConfig',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
