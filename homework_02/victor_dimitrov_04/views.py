@@ -30,7 +30,7 @@ def trains(request):
         #the train/track/vehicle number. 
         trip_id = element['relationships']['trip']['data']['id']
         trip_ids.append(trip_id)
-        train_info['track'] = trip_id[10:14]
+        train_info['number'] = trip_id[10:14]
 
         #I hate this part
         for departure in response['included']:
