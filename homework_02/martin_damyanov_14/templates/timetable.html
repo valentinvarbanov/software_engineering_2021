@@ -38,25 +38,20 @@ table tr td
 
     <table style="width: 100%;">
         <tr>
-            <th><h2>Arrival Time</h2></th>
-            <th><h2>Departure Time</h2></th>
-            <th><h2>Direction</h2></th>
-            <th><h2>Vehicle id</h2></th>
+            <th><h2>Time</h2></th>
+            <th><h2>Destination</h2></th>
+            <th><h2>Train Id</h2></th>
+            <th><h2>Track Id</h2></th>
             <th><h2>Status</h2></th>
         </tr>
         <tr>
-            {% for d in data.data %}
+            {% for train in data %}
             <tr>
-                <th><h4>{{ d.attributes.arrival_time }}</h4></th>
-                <th><h4>{{ d.attributes.departure_time }}</h4></th>
-                <th><h4>{{ d.attributes.direction_id }}</h4></th>
-                <th><h4>{{ d.relationships.vehicle.data.id }}</h4></th>
-
-                {% for status in statuses %}
-                    {% if forloop.counter == forloop.parentloop.counter %}
-                        <th><h4>{{ status }}</h4></th>
-                    {% endif %}
-                {% endfor %}
+                <th><h4>{{ train.time }}</h4></th>
+                <th><h4>{{ train.destination }}</h4></th>
+                <th><h4>{{ train.train }}</h4></th>
+                <th><h4>{{ train.track }}</h4></th>
+                <th><h4>{{ train.status }}</h4></th>
             </tr>
             {% endfor %}    
         </tr>
