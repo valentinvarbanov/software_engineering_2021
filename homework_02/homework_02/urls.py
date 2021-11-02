@@ -24,4 +24,5 @@ urlpatterns = [
     path('13/', include('Martin_Georgiev_13.urls')),
     path('19/', include('teodor_dishanski_19.urls')),
     path('martin_dinev_15/', include('Martin_Dinev_15.urls')),
+    path('17/', include('petar_damyanov_17.urls'))
 ]
