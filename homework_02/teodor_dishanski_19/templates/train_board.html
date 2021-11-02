@@ -1,0 +1,45 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<h1>North Station Information</h1>
+
+<div class="datetime">
+    <div class="float-child">
+      <div class="day" >{{ day }}</div>
+    </div>
+    
+    <div class="float-child">
+      <div class="date">{{ date }}</div>
+    </div>
+
+    <div class="float-child">
+        <div class="date"> {{ time }}</div>
+    </div>
+</div>
+
+<table class="train_board">
+    <thead>
+        <tr style="background-color: blue;">
+            <th>Time</th>
+            <th>Destination</th>
+            <th>Train</th>
+            <th>Track</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            {% for train_information in trains_informations %}
+            <tr>
+                <td>{{ train_information.0 }}</td>
+                <td>{{ train_information.1 }}</td>
+                <td>{{ train_information.2 }}</td>
+                <td>{{ train_information.3 }}</td>
+                <td>{{ train_information.4 }}</td>
+            </tr>
+            {% endfor %}    
+        </tr>
+    </tbody>
+</table>
