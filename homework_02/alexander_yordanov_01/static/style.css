@@ -1,0 +1,38 @@
+body
+{
+    font-family: 'Noto Sans Mono', monospace;
+    font-size: 15px;
+    background-color: #2F3061;
+    color: #DFDFDF;
+}
+
+h1
+{
+    text-align: center;
+    padding: auto;
+    margin: auto;
+}
+
+table
+{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+td, th
+{
+    border: none;
+    text-align: center;
+    padding: 12px 15px;
+}
+
+tr
+{
+    background-color: #0E34A0;
+    color: #DFDFDF;
+    text-align: left;
+}

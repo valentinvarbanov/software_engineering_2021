@@ -1,0 +1,43 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'main.css' %}">
+
+<h1>North Station Information</h1>
+
+<div style="text-align: center;">
+    <div>
+      <div>{{ day }}</div>
+    </div>
+
+    <div>
+        <div> {{ time }}</div>
+    </div>
+
+    <div>
+      <div>{{ date }}</div>
+    </div>
+</div>
+
+<table>
+    <thead>
+        <tr >
+            <th>Departure Time</th>
+            <th>Destination</th>
+            <th>Train#</th>
+            <th>Track#</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+            {% for trip in trips %}
+            <tr>
+                <td>{{ trip.date }}</td>
+                <td>{{ trip.destination }}</td>
+                <td>{{ trip.train_id }}</td>
+                <td>{{ trip.track }}</td>
+                <td>{{ trip.status }}</td>
+            </tr>
+            {% endfor %}
+    </tbody>
+</table> 
