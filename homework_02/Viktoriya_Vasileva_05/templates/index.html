@@ -1,34 +1,49 @@
-
-<h1>I have no idea what to do</h1>
-{{data}}
-
-
-
-
-<!-- 
 <html>
-<body>
-
-<h2>Make a table based on JSON data.</h2>
-
-<p id="demo"></p>
-
-<script>
-const dbParam = JSON.stringify({table:"customers",limit:20});
-const xmlhttp = new XMLHttpRequest();
-xmlhttp.onload = function() {
-  const myObj = JSON.parse(this.responseText);
-  let text = "<table border='1'>"
-  for (let x in myObj) {
-    text += "<tr><td>" + myObj[x].name + "</td></tr>";
-  }
-  text += "</table>"    
-  document.getElementById("demo").innerHTML = text;
+<head>
+<style>
+table, th, td {
+  /* border: 1px solid white;
+  border-collapse: collapse; */
 }
-xmlhttp.open("POST", "json_demo_html_table.php");
-xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-xmlhttp.send("x=" + dbParam);
-</script>
+th, td {
+  /* background-color: #96D4D4; */
+  background-color: black
+}
+</style>
+</head>
+<body style="background-color:black">
+    <h2 style="color:grey"><center>North Station Information</center></h2>
+    <h2>
+    <div style="color:yellowgreen;">
+        <span style="float: left;">{{weekday}}</span> 
+        <span style="float: right;">Current Time</span>
+      </div>
+      <br>
+      <div style="color:yellowgreen;">
+        <span style="float: left;">{{date}}</span> 
+        <span style="float: right;">{{time}}</span>
+      </div>
+    </h2>
+<table style="width:100%;color:yellowgreen">
+    <tr style="height: 50px;color:grey">
+      <th>TIME</th>
+      <th>DESTINATION</th>
+      <th>TRAIN</th>
+      <th>TRACK</th>
+      <th>STATUS</th>
+    </tr>
 
+{% for line in lines %}
+    <tr>
+        <th>{{ line.0 }}</th>
+        <th>{{ line.1 }}</th>
+        <th>{{ line.2 }}</th>
+        <th>{{ line.3 }}</th>
+        <th>{{ line.4 }}</th>    
+    </tr>
+{% endfor %}
+
+    
+  </table>
 </body>
-</html> -->
+</html>
