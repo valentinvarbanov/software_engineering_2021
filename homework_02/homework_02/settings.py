@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ivan_enchev_10'
+    'ivan_enchev_10',
 ]
 
 MIDDLEWARE = [
