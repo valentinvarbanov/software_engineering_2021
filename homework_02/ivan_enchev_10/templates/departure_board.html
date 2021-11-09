@@ -1,0 +1,44 @@
+<h3>
+    The date is: {{ day }}.{{ month }}.{{ year }}
+    <div></div>
+    The time is: {{ now }}
+    <div></div>
+    <table>
+    <tr>
+        <th><h3>Vehicle ID</h3></th>
+        <th><h3>Departure Time</h3></th>
+        <th><h3>Direction</h3></th>
+        <th><h3>Status</h3></th>
+    </tr>
+    {% for i in trips %}
+        <tr>
+            <tr>
+            {% for train in trains %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <th><h3>{{ train }}</h3></th>
+                    {% endif %}
+                {% endfor %}
+
+            {% for dep_time in destination_times %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <th><h3>{{ dep_time }}</h3></th>
+                    {% endif %}
+                {% endfor %}
+
+            {% for dir in directions %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <th><h3>{{ dir }}</h3></th>
+                    {% endif %}
+                {% endfor %}
+
+            {% for status in train_statuses %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <th><h3>{{ status }}</h3></th>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tr>
+    </table>
+
+</h3>
