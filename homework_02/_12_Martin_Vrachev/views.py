@@ -10,7 +10,7 @@ def departure_board(request):
     now = datetime.datetime.now(timezone('US/Eastern'))
     weekday = now.strftime('%A')
     date = now.strftime('%m-%d-%Y')
-    time = now.strftime('%l:%M %p')
+    time = now.strftime('%I:%M %p')
 
     params = {
     'page[offset]': '0',
