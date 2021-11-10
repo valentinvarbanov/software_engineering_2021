@@ -19,3 +19,9 @@ Shows the structure of the crypto project.
 Shows the flow when loading the home web page.
 
 ![sequence diagram](sequence_diagram.png)
+
+## Activity diagram
+
+Shows the flow when displaying a train departure board from the second homework.
+
+![activity diagram](ActivityDiagram-HW2.png)
