@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <style>
+            
+            #train{
+                width: 100%;
+                border: 1px solid black;
+            }
+
+            #train td {
+                height: 30px;
+                padding: 15px;
+                text-align: center;
+                border: 1px solid black;
+            }
+
+            #train th {
+                height: 30px;
+                padding: 15px;
+                text-align: center;
+                border: 1px solid black;
+            }
+        </style>        
+    </head>        
+
+    <body bgcolor="#ff0000">
+        <h1>North Station Information</h1>
+        <table id="train">
+            <tr>
+                <th>Departure Time</th>
+                <th>Destination</th>
+                <th>Status</th>
+                <th>Train#</th>
+            </tr>
+
+            {% for train in context%}
+
+            <tr>
+                <td>{{train.time}}</td>
+                <td>{{train.route}}</td>
+                <td>{{train.status}}</td>
+                <td>{{train.number}}</td>
+            </tr>
+    
+            {% endfor %}
+        </table>
+    </body>    
+</html>
