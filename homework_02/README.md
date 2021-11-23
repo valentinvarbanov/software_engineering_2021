@@ -80,3 +80,8 @@ Doing the code reviews:
 ```
 Tue, 26 Oct 2021 23:59:59 +0300
 ```
+
+Merge the pull request:
+
+```
+Sun, 31 Oct 2021 23:59:59 +0300

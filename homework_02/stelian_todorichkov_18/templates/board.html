@@ -1,0 +1,38 @@
+{% load static %}
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div>
+            <h1>North station departure board</h1>
+            <h2>{{ time }}</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <td>TIME</td>
+                        <td>DESTINATION</td>
+                        <td>TRAIN#</td>
+                        <td>TRACK#</td>
+                        <td>STATUS</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for el in data %}
+                        <tr>
+                            <td>{{ el.time }}</td>
+                            <td>{{ el.destination }}</td>
+                            <td>{{ el.train }}</td>
+                            <td>{{ el.track }}</td>
+                            <td>{{ el.status }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
