@@ -19,6 +19,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+
+    'Viktoriya_Vasileva_05',
     '_12_Martin_Vrachev.apps._12MartinVrachevConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -67,6 +69,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'homework_02.wsgi.application'
 
