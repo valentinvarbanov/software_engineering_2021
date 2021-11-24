@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="child1">
+        <h1>current time: {{ year }}:{{ month }}:{{ day }}  -  {{ time }}</h1>   
+    </div>
+
+    <div class="child2">
+        <table style="width: 100%;">
+        <tr>
+            <th><h3>arrival time</h3></th>
+            <th><h3>departure time</h3></th>
+            <th><h3>direction</h3></th>
+            <th><h3>vehicle id</h3></th>
+            <th><h3>status</h3></th>
+        </tr>
+        {% for i in timetable_data %}
+        <tr>
+            <tr>
+            <th><h5>{{ i.attributes.arrival_time }}</h5></th>
+            <th><h5>{{ i.attributes.departure_time }}</h5></th>
+            <th><h5>{{ i.attributes.direction_id }}</h5></th>
+            <th><h5>{{ i.relationships.vehicle.data.id }}</h5></th>
+
+            {% for status in status_array %}
+                {% if forloop.counter == forloop.parentloop.counter %}
+                    <th><h4>{{ status|default:"missing value" }}</h4></th>
+                {% endif %}
+            {% endfor %}
+            </tr>
+            {% endfor %}
+        </tr>
+        
+        </table>
+    </div>
+</div>
+
+<style>
+    .container {
+        display: grid;
+        grid-template: 1fr / 1fr;
+        place-items: center;
+        justify-content: center;
+    }
+
+    .child1 {
+        margin-bottom: 10%;
+        z-index: 1;
+    }
+
+    .child2 {
+        width: 100%;
+        z-index: 2;
+    }
+</style>
+

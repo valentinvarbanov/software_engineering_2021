@@ -1,0 +1,58 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>-Timetable-</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <h1>{{ time_day }}</h1>
+        <h1>{{ now_time }}</h1>
+        <h1>{{ hour }}</h1>
+
+        <table>
+            <tr>
+                <th>Arrival Time</th>
+                <th>Train #</th>
+                <th>Destination</th>
+                <th>Status</th>
+            </tr>
+
+            <tr>
+                {% for s in statuses %}
+                <tr>
+
+                    {% for item in arrivals %}
+                        {% if forloop.counter == forloop.parentloop.counter %}
+                            <td>{{ item }}</td>
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% for item in vehicles_id %}
+                        {% if forloop.counter == forloop.parentloop.counter %}
+                            <td>{{ item }}</td>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% for item in names %}
+                        {% if forloop.counter == forloop.parentloop.counter %}
+                            <td>{{ item }}</td>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% for item in statuses %}
+                        {% if forloop.counter == forloop.parentloop.counter %}
+                            <td>{{ item }}</td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+                {% endfor %}    
+            </tr>
+        </table>
+    </body>
+</html>

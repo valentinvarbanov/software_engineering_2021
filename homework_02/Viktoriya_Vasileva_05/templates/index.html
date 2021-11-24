@@ -1,0 +1,49 @@
+<html>
+<head>
+<style>
+table, th, td {
+  /* border: 1px solid white;
+  border-collapse: collapse; */
+}
+th, td {
+  /* background-color: #96D4D4; */
+  background-color: black
+}
+</style>
+</head>
+<body style="background-color:black">
+    <h2 style="color:grey"><center>North Station Information</center></h2>
+    <h2>
+    <div style="color:yellowgreen;">
+        <span style="float: left;">{{weekday}}</span> 
+        <span style="float: right;">Current Time</span>
+      </div>
+      <br>
+      <div style="color:yellowgreen;">
+        <span style="float: left;">{{date}}</span> 
+        <span style="float: right;">{{time}}</span>
+      </div>
+    </h2>
+<table style="width:100%;color:yellowgreen">
+    <tr style="height: 50px;color:grey">
+      <th>TIME</th>
+      <th>DESTINATION</th>
+      <th>TRAIN</th>
+      <th>TRACK</th>
+      <th>STATUS</th>
+    </tr>
+
+{% for line in lines %}
+    <tr>
+        <th>{{ line.0 }}</th>
+        <th>{{ line.1 }}</th>
+        <th>{{ line.2 }}</th>
+        <th>{{ line.3 }}</th>
+        <th>{{ line.4 }}</th>    
+    </tr>
+{% endfor %}
+
+    
+  </table>
+</body>
+</html>
