@@ -13,12 +13,14 @@ SECRET_KEY = 'django-insecure-ipvx+u1ap*m0b@fnzl*#y0hxm7#z#&e0a(hxg7tf6lk@d3+xcj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+
+    'Viktoriya_Vasileva_05',
     '_12_Martin_Vrachev.apps._12MartinVrachevConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -26,6 +28,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'solution_00.apps.Solution00Config',
+    'Liliya_Lyubenova_11',
     'ivan_enchev_10',
     'martin_damyanov_14',
     'victor_dimitrov_04',
@@ -66,6 +70,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'homework_02.wsgi.application'
 
