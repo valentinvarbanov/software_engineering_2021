@@ -29,7 +29,7 @@ class Circle:
         radiusSum = self.r + another_circle.r
         radiusSub = self.r - another_circle.r
 
-        if distance == 0 and radiusSub == 0:
+        if self.center.x == another_circle.center.x and self.center.y == another_circle.center.y or abs(distance) < abs(radiusSub):
             return ReturnTypes.SAME
 
         elif abs(distance) > radiusSum:

@@ -46,8 +46,3 @@ def test_intersecting():
     circle2 = main_task.Circle(main_task.Point(1.5, 1.0), 1.0)
 
     assert circle1.find_relative_position(circle2) == main_task.ReturnTypes.INTERSECTING
-
-test_same_circles()
-test_no_common_points()
-test_touching()
-test_intersecting()
