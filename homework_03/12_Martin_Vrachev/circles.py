@@ -54,7 +54,7 @@ class Circle:
             exit()
           
         # Same
-        if self.center.x == circle.center.x and self.center.y == circle.center.y:
+        if self.center.x == circle.center.x and self.center.y == circle.center.y and self.radius == circle.radius:
             return RelativePosition.SAME
         
         ab = abs(distance(self.center, circle.center))
