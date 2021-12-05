@@ -17,11 +17,6 @@ def test_same_case3():
     other_c = Circle(Point(-5.0, 0.0), 1.0)
     assert  circle.find_relative_position(other_c) == RelativePosition.SAME
 
-def test_touching():
-    circle = Circle(Point(0.0, 0.0), 6.0)
-    other_c = Circle(Point(9.0, 0.0), 3.0)
-    assert  circle.find_relative_position(other_c) == RelativePosition.TOUCHING
-
 def test_no_common_points():
     circle = Circle(Point(0.0, 0.0), 6.0)
     other_c = Circle(Point(0.0, -9.0), 1.0)

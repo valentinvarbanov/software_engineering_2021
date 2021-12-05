@@ -41,7 +41,6 @@ class Circle:
     def are_touching(self, other_circle):
         return(self.r + other_circle.r == self.distance(other_circle))
 
-
     def find_relative_position(self, other_circle):
         if(self.are_same(other_circle)):
             return RelativePosition.SAME
