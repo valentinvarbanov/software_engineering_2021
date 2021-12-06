@@ -12,6 +12,9 @@ class Point:
         self.x = float(x)
         self.y = float(y)
 
+    def distance_between_two_centers(center_1, center_2):
+        return sqrt(pow((center_1.x - center_2.x), 2) + pow((center_1.y - center_2.y), 2))
+        
 class Circle:
     def __init__(self, center, radius):
         self.center = center
@@ -19,7 +22,7 @@ class Circle:
         assert radius > 0
 
     def find_relative_position(self, circle_2):
-        distance = sqrt(pow((self.center.x - circle_2.center.x), 2) + pow((self.center.y - circle_2.center.y), 2))
+        distance = Point.distance_between_two_centers(self.center, circle_2.center)
         sum_radiuses = self.radius + circle_2.radius
         sub_radiuses = abs(self.radius - circle_2.radius)
 
