@@ -13,6 +13,8 @@ Sun, 19 Dec 2021 23:59:59 +0300
 
 | Team | Participants | link to repo |
 |------|--------------|--------------|
+| A | Martin Dinev, Martin Georigiev | https://github.com/Martincho2003/Social-network |
+
 
 
 * Try to keep table sorted by team
