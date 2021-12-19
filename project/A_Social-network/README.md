@@ -4,7 +4,7 @@
 
 ## Milestone 2 - user stories
 
-1. As user, I want to be able to message other users in a separate chat, so that we can have separate conversation
+1. As user, I want to be able to message other users in a separate chat, so that we can have private conversation
 
 2. As user, I want to be able to make rooms with other people, so that we can have fun together
 
