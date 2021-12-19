@@ -14,7 +14,7 @@ Sun, 19 Dec 2021 23:59:59 +0300
 | Team | Participants | link to repo |
 |------|--------------|--------------|
 | A | Martin Dinev, Martin Georigiev | https://github.com/Martincho2003/Social-network |
-
+| D | Vladislav Kolev, Petar Damianov | https://github.com/Vladikolev0321/DEX-For-NFT |
 
 
 * Try to keep table sorted by team
