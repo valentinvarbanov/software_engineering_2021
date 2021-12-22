@@ -17,7 +17,7 @@ Sun, 19 Dec 2021 23:59:59 +0300
 | B | Gergana Roeva, Ivan Enchev | https://github.com/GerganaRoeva/Man_Don-t_Be_Mad |
 | C | Martin Damqnov, Stelian Todorichkov | https://github.com/marti456/Car-To-Do |
 | D | Vladislav Kolev, Petar Damianov | https://github.com/Vladikolev0321/DEX-For-NFT |
-| G | Alexander Yordanov, Martin Vrachev | https://github.com/Alexander1022/DjangoForum |9
+| G | Alexander Yordanov, Martin Vrachev | https://github.com/Alexander1022/DjangoForum |
 | H | Teodor Dishanski, Victor Dimitrov | https://github.com/Teodor1331/Software-Engineering-Project |
 
 
