@@ -1,6 +1,5 @@
 # Projects for the end of term
 
-
 ## Milestone 1 - creating repository
 
 Create a **public** repository and add a short description of the project.
@@ -10,7 +9,6 @@ Deadline:
 ```
 Sun, 19 Dec 2021 23:59:59 +0300
 ```
-
 | Team | Participants | link to repo |
 |------|--------------|--------------|
 | A | Martin Dinev, Martin Georigiev | https://github.com/Martincho2003/Social-network |
@@ -21,10 +19,12 @@ Sun, 19 Dec 2021 23:59:59 +0300
 | F | Liliya Lyubenova, Angel Stoyanov | https://github.com/Lilly7777/FinanceDash |
 | G | Alexander Yordanov, Martin Vrachev | https://github.com/Alexander1022/DjangoForum |
 | H | Teodor Dishanski, Victor Dimitrov | https://github.com/Teodor1331/Software-Engineering-Project |
+| I | Atanas Atanasov, Denis Zahariev, Martin Vayer | https://github.com/VayerMaking/brand-hive |
 
 
 * Try to keep table sorted by team
 
+- Try to keep table sorted by team
 
 ## Milestone 2 - user stories
 
@@ -33,7 +33,6 @@ Create **3 (or more)** user stories that describe the project.
 Upload the 3 (or more) stories in a `README.md` located in a folder named after the team and project. 
 
 Example: `z_fancy_project/README.md` - where `z` is the team and the project is called `FacnyProject`.
-
 
 Deadline:
 
