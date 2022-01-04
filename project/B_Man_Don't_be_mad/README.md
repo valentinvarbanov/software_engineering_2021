@@ -1,5 +1,6 @@
 # User Story
 
+|  |  |   |  |   |  |     |
 |---|------|---|-----------|---| ------- | --- |
 | 1 | As a | player | I want | the game to have a board | So that | I can where to move |
 | 2 | As a | player | I want to be able to | roll a dice | So that | I can move my pawns |
