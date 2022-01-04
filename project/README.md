@@ -41,4 +41,11 @@ Deadline:
 Thu, 30 Dec 2021 23:59:59 +0300
 ```
 
-## Milestone 3 - TBD
+## Milestone 3 - First version
+
+Create a demo ready first version of the project that will be shown in class.
+
+
+```
+Tue, 11 Jan 2022 23:59:59 +0300
+```
