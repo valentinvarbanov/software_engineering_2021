@@ -17,9 +17,9 @@ Rules:
 
 * If the generated password is one of `12345`, `qwerty`, `password` or `asdf` its complexity is `0.0`.
 * The base complexity is `0.0`. In a criteria is met it's complexity increases:
-** Has a letter(upper or lower) -> +0.25 complexity
-** Has one of `?`, `!`, `*`, `%`, `$` or `@`  -> +0.25 complexity
-** Has more than 8 characters -> +0.5 complexity
+  * Has a letter(upper or lower) -> +0.25 complexity
+  * Has one of `?`, `!`, `*`, `%`, `$` or `@`  -> +0.25 complexity
+  * Has more than 8 characters -> +0.5 complexity
 
 Examples:
 
