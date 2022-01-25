@@ -13,6 +13,7 @@
     <body>
         <h1>{{ time_day }}</h1>
         <h1>{{ now_time }}</h1>
+        <h1>{{ hour }}</h1>
 
         <table>
             <tr>
@@ -20,6 +21,8 @@
                 <th>Departure Time</th>
                 <th>Vehicle Id</th>
                 <th>Route</th>
+                <th>Train #</th>
+                <th>Destination</th>
                 <th>Status</th>
             </tr>
 
@@ -30,6 +33,22 @@
                     <td>{{ d.attributes.departure_time }}</td>
                     <td>{{ d.relationships.vehicle.data.id }}</td>
                     
+
+                {% for s in statuses %}
+                <tr>
+
+                    {% for item in arrivals %}
+                        {% if forloop.counter == forloop.parentloop.counter %}
+                            <td>{{ item }}</td>
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% for item in vehicles_id %}
+                        {% if forloop.counter == forloop.parentloop.counter %}
+                            <td>{{ item }}</td>
+                        {% endif %}
+                    {% endfor %}
+
                     {% for item in names %}
                         {% if forloop.counter == forloop.parentloop.counter %}
                             <td>{{ item }}</td>

@@ -1,0 +1,57 @@
+<style>
+
+table, th, td {
+  text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+</style>
+
+
+<h1>NORTH STATION INFORMATION</h1>
+
+<div style="width: 100%; font-size: 25px; font-weight: bold;">
+    <div style="width: 50%; float: left; text-align: left;"> {{ weekday }} </div>
+    <div style="width: 50%; float: left; text-align: right;"> Current time </div>
+</div>
+
+<div style="width: 100%; font-size: 25px; font-weight: bold;">
+    <div style="width: 50%; float: left; text-align: left;"> {{ date }} </div>
+    <div style="width: 50%; float: left; text-align: right;"> {{ time }} </div>
+</div>
+
+<div style="margin-top:200px;">
+    <table style="width: 100%;">
+        <tr>
+            <th>Estimated Arrival Time</th>
+            <th>Estimated Departure Time</th>
+            <th>Status</th>
+            <th>Train#</th>
+            <th> Destination </th>
+        </tr>
+        {% for r in response %}
+        <tr>
+            <td>{{ r.attributes.arrival_time }}</td>
+            <td>{{ r.attributes.departure_time }}</td>
+            <td>{{ r.attributes.status }}</td>
+
+            {% for t in train_no %}
+                {% if forloop.counter == forloop.parentloop.counter %}
+                    <td> {{ t }} </td>
+                    {% endif %}
+            {% endfor %}
+
+            {% for d in destinations %}
+                {% if forloop.counter == forloop.parentloop.counter %}
+                    <td> {{ d }} </td>
+                    {% endif %}
+            {% endfor %}
+
+        </tr>
+        {% endfor %}
+
+
+    </table>
+</div>
