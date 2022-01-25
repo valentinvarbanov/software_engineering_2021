@@ -1,0 +1,14 @@
+{% include "navigation_bar.html" %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+
+<div class="container">
+        <img src="https://wdakhbar.com/wp-content/uploads/2021/07/140-205827-digital-currencies-today-bitcoin-dogecoin_700x400.jpg" width="400" height="300"></img>
+        <h1>
+            The lucky currency is:
+            <div style="color:green">{{ currency_name }}({{ currency_code }})</div>
+            <div>Price: {{ currency_price }}</div>
+            <div>Supply: {{ currency_supply }}</div>
+        </h1>
+</div>

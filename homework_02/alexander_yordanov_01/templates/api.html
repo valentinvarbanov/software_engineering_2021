@@ -18,22 +18,12 @@
         <table>
             <tr>
                 <th>Arrival Time</th>
-                <th>Departure Time</th>
-                <th>Vehicle Id</th>
-                <th>Route</th>
                 <th>Train #</th>
                 <th>Destination</th>
                 <th>Status</th>
             </tr>
 
             <tr>
-                {% for d in data.data %}
-                <tr>
-                    <td>{{ d.attributes.arrival_time }}</td>
-                    <td>{{ d.attributes.departure_time }}</td>
-                    <td>{{ d.relationships.vehicle.data.id }}</td>
-                    
-
                 {% for s in statuses %}
                 <tr>
 

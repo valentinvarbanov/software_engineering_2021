@@ -1,0 +1,56 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-image: url("https://www.post.ch/-/media/post/ueber-uns/medienmitteilungen/2021/header-mm-crypto-1872-1053.jpg?mw=1600&vs=1&hash=694774F76068D792C0CC26850B910DBE");
+}
+
+.nav ul {
+    background-color: #111;
+    font-size: 150%;
+    height: 10%;
+    list-style: none;
+    border-bottom: 2px solid white;
+    
+}
+
+.nav li{
+    display: inline-block;
+    padding: 1.5% 1.5%;
+}
+
+.nav a {
+    text-align: center;
+    text-decoration: none; 
+    color: white;
+}
+
+.nav a:hover {
+    color: #004d99;
+}
+
+.lucky{
+    background-color: #222;
+    color: white;
+    width: 20%;
+    padding: 3.5%;
+    height: 50%;
+    margin-top: 5%;
+    margin-left: 60%;
+    border-radius: 20%;
+    border: 1px solid white;
+}
+
+.info{
+    padding-top: 10%;
+}
+
+.coin{
+    width: 32%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 5%;
+}
