@@ -8,11 +8,11 @@ on:
   push:
     branches: [ main ]
     paths: 
-      - 21_ci_cd/
+      - 21_ci_cd/**
   pull_request:
     branches: [ main ]
     paths: 
-      - 21_ci_cd/
+      - 21_ci_cd/**
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
