@@ -48,3 +48,12 @@ Create a demo ready first version of the project that will be shown in class.
 ```
 Tue, 11 Jan 2022 23:59:59 +0300
 ```
+
+## Milestone 4 - Basic functionality
+
+Cover the basic functionality of the project. This includes the three stories that were created in Milestone 2.
+
+
+```
+Sun, 27 Feb 2022 23:59:59 +0300
+```
