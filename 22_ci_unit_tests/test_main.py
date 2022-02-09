@@ -19,7 +19,7 @@ def test_is_christmass():
 
 @freeze_time("2021-12-25")
 def test_is_Christmas():
-    assert greet() != "Merry Christmas!"
+    assert greet() == "Merry Christmas!"
 
 
 def test_is_christmas_with_date():
