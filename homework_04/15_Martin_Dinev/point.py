@@ -3,6 +3,8 @@ This file is will show us the relative position of two circles and
 is a part of out homework for Software engineering
 """
 
+# pylint: disable=R0903
+
 import enum
 from math import sqrt, pow as power
 
