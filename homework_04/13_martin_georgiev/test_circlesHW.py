@@ -1,4 +1,4 @@
-from circlesHW import RelativePosition, Point, Circle
+from circles_hw import RelativePosition, Point, Circle
 
 def test_is_circle():
     assert isinstance(Circle(Point(1, 1), 1), Circle)
