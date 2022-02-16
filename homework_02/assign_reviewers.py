@@ -43,4 +43,4 @@ while should_shuffle:
             break
 
 for index in range(len(github_accounts)):
-    print(github_accounts[index] + " -> " + reviewer_1[index] + " " + reviewer_2[index])
+    print("| " + github_accounts[index] + " | " + reviewer_1[index] + " | " + reviewer_2[index] + " |")
