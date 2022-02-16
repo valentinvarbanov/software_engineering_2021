@@ -34,6 +34,9 @@ jobs:
         cd homework_04
         cd 15_Martin_Dinev
         pylint point.py
-        
+
     - name: Run the tests
-      run: pytest
+      run: |
+        cd homework_04
+        cd 15_Martin_Dinev
+        pytest
