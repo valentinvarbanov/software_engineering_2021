@@ -30,7 +30,7 @@ jobs:
       run: |
         cd homework_04
         cd 13_martin_georgiev
-        pylint circlesHW.py
+        pylint circles_hw.py
     - name: Pytests
       run: |
         cd homework_04
