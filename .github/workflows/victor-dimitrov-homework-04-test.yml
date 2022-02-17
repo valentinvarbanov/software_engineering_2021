@@ -32,7 +32,7 @@ jobs:
       run: |
         cd homework_04
         cd 04_Victor_Dimitrov
-        pytest
+        pytest tests.py
     - name: Lint with Pylint
       run: |
         cd homework_04
