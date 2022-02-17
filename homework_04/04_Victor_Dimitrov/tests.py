@@ -87,3 +87,4 @@ def test_same():
     circle_2 = Circle(Point(-1.0, -1.0), 1.8)
 
     assert circle_1.circle_position(circle_2) == RelativePosition.SAME
+    
