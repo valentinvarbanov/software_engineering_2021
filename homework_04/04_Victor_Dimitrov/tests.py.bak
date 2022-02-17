@@ -3,7 +3,7 @@ Test file that contains multiple unit tests for proving the
 circle.py file functionalities
 '''
 
-from circles import Circle, Point, RelativePosition
+from circle import Circle, Point, RelativePosition
 
 def test_no_common_points():
     '''
