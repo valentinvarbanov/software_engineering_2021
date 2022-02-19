@@ -1,0 +1,50 @@
+name: Homework 04 Continuous Integration (Teodor Dishanski, XII B, Number 19)
+
+on:
+  push:
+    branches: [ main ]
+    paths: 
+      - homework_04/19_Teodor_Dishanski/**
+  pull_request:
+    branches: [ main ]
+    paths: 
+      - homework_04/19_Teodor_Dishanski/**
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.6
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.6"
+    - name: Install Dependencies from Requirements.txt
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Install Additional Linters
+      run: |
+        pip install pylint
+        pip install pylama
+        pip install pycodestyle
+        pip install pydocstyle
+        pip install mypy
+    - name: Run All Unit Tests
+      run: |
+        cd homework_04/19_Teodor_Dishanski
+        pytest
+    - name: Run All Linters
+      run: |
+        cd homework_04/19_Teodor_Dishanski
+        pylint *.py
+        pylama *.py
+        pycodestyle *.py
+        pydocstyle *.py
+        mypy *.py
+    - name: Delete Useless Resources
+      run: |
+        cd homework_04/19/Teodor_Dishanski
+        make clean
