@@ -5,11 +5,11 @@ on:
   push:
     branches: [ main ]
     paths: 
-      - homework_04/19_Stelian_Todorichkov/**
+      - homework_04/18_Stelian_Todorichkov/**
   pull_request:
     branches: [ main ]
     paths: 
-      - homework_04/19_Stelian_Todorichkov/**
+      - homework_04/18_Stelian_Todorichkov/**
 
 jobs:
   build:
@@ -32,12 +32,12 @@ jobs:
     - name: Run the tests
       run: |
         cd homework_04
-        cd 19_Stelian_Todorichkov
+        cd 18_Stelian_Todorichkov
         pytest
 
     - name: Check the code with pylint
       run: |
         cd homework_04
-        cd 19_Stelian_Todorichkov
+        cd 18_Stelian_Todorichkov
         pylint circle.py
         pylint test_circle.py
