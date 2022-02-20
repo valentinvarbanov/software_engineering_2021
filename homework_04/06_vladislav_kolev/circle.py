@@ -45,12 +45,12 @@ class Circle:
 
         if (self.center.x_coord == other_circle.center.x_coord
              and self.center.y_coord == other_circle.center.y_coord
-             and self.radius == other_circle.r):
+             and self.radius == other_circle.radius):
             return RelativePosition.SAME
-        if abs(self.radius - other_circle.r) < centers_distance <  self.radius + other_circle.r:
+        if abs(self.radius - other_circle.radius) < centers_distance <  self.radius + other_circle.radius:
             return RelativePosition.INTERSECTING
-        if centers_distance == self.radius + other_circle.r \
-                         or centers_distance == (abs(self.radius - other_circle.r)):
+        if centers_distance == self.radius + other_circle.radius \
+                         or centers_distance == (abs(self.radius - other_circle.radius)):
             return RelativePosition.TOUCHING
 
         return RelativePosition.NO_COMMON_POINTS
