@@ -47,7 +47,8 @@ class Circle:
              and self.center.y_coord == other_circle.center.y_coord
              and self.radius == other_circle.radius):
             return RelativePosition.SAME
-        if abs(self.radius - other_circle.radius) < centers_distance <  self.radius + other_circle.radius:
+        if abs(self.radius - other_circle.radius) < centers_distance \
+             <  self.radius + other_circle.radius:
             return RelativePosition.INTERSECTING
         if centers_distance == self.radius + other_circle.radius \
                          or centers_distance == (abs(self.radius - other_circle.radius)):
