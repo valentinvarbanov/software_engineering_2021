@@ -8,7 +8,7 @@ on:
   pull_request:
     branches: [ main ]
     paths: 
-      - homework_04/19_Teodor_Dishanski/**
+      - homework_04/19_teodor_dishanski/**
 
 jobs:
   build:
@@ -38,7 +38,7 @@ jobs:
         pytest
     - name: Run All Linters
       run: |
-        cd homework_04/19_Teodor_Dishanski
+        cd homework_04/19_teodor_dishanski
         pylint *.py
         pylama *.py
         pycodestyle *.py
@@ -46,5 +46,5 @@ jobs:
         mypy *.py
     - name: Delete Useless Resources
       run: |
-        cd homework_04/19_Teodor_Dishanski
+        cd homework_04/19_teodor_dishanski
         make clean
