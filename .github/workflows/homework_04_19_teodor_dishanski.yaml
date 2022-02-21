@@ -34,7 +34,7 @@ jobs:
         pip install mypy
     - name: Run All Unit Tests
       run: |
-        cd homework_04/19_Teodor_Dishanski
+        cd homework_04/19_teodor_dishanski
         pytest
     - name: Run All Linters
       run: |
