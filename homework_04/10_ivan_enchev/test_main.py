@@ -1,3 +1,5 @@
+"""Pytests"""
+
 from main import *
 
 
@@ -35,6 +37,7 @@ def test_same():
     a = Circle(Point(0.0, 0.0), 1.0)
     b = Circle(Point(0.0, 0.0), 1.0)
     assert a.find_relative_position(b) == RelativePosition.SAME
+
 
 test_same()
 test_intersecting()

@@ -9,9 +9,9 @@ from math import fabs, sqrt
 def find_distance(point_a, point_b):
     """Find distance between two points."""
 
-    sideA = fabs(point_a.x - point_b.x)
-    sideB = fabs(point_a.y - point_b.y)
-    return sqrt((sideB * sideB) + (sideA * sideA))
+    side_a = fabs(point_a.x_coord - point_b.x_coord)
+    side_b = fabs(point_a.y_coord - point_b.y_coord)
+    return sqrt((side_b * side_b) + (side_a * side_a))
 
 
 class RelativePosition(Enum):
