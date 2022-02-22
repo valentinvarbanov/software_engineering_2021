@@ -1,10 +1,11 @@
 '''
-Importing Enum module
+Check position of two circles
 '''
 from enum import Enum
 import math
 import sys
 
+#pylint: disable=R0903
 class RelativePosition(Enum):
     '''
     Enum class used for return statements after checks
