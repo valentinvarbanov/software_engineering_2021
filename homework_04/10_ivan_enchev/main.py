@@ -49,11 +49,11 @@ class Circle:
         if line > (self.radius + another.radius):
             position = RelativePosition.NO_COMMON_POINTS
 
-        elif line == (self.radius + another.radius) or (line == fabs((self.radius - another.radius)) and line != 0):
+        elif line == (self.radius + another.radius) or \
+                (line == fabs((self.radius - another.radius)) and line != 0):
             position = RelativePosition.TOUCHING
 
         elif (self.radius + another.radius) > line > fabs((self.radius - another.radius)):
             position = RelativePosition.INTERSECTING
 
         return position
-
