@@ -31,8 +31,6 @@ jobs:
 
     - name: Run the tests
       run: |
-        cd homework_04
-        cd 14_martin_damyanov
         pytest
 
     - name: Check the code with pylint
