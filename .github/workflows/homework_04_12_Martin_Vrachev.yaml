@@ -53,4 +53,4 @@ jobs:
         run: |
           cd homework_04/12_Martin_Vrachev
           pylint circles.py
-          pylint tests.py
+          pylint test_circle.py
