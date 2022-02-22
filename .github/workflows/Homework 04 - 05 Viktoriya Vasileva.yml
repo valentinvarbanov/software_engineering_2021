@@ -1,13 +1,14 @@
 name: Pylint
 
-push:
-    branches: [ main ]
-    paths: 
-      - homework_04/05_viktoriya_vasileva/**
-  pull_request:
-    branches: [ main ]
-    paths: 
-      - homework_04/05_viktoriya_vasileva/**
+on:
+    push:
+        branches: [ main ]
+        paths: 
+          - homework_04/05_viktoriya_vasileva/**
+    pull_request:
+        branches: [ main ]
+        paths: 
+          - homework_04/05_viktoriya_vasileva/**
 
 jobs:
   build:
@@ -27,6 +28,7 @@ jobs:
         pip install -r requirements.txt
     - name: Analysing the code with pylint
       run: |
-        cd homework_04/05_viktoriya_vasileva/
+        cd homework_04
+        cd 05_viktoriya_vasileva
         pylint circles.py
         pylint test_circles.py
