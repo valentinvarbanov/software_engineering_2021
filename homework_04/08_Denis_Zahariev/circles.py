@@ -71,13 +71,13 @@ class Circle:
         radius_sum = self.radius + other.radius
         radius_difference = abs(self.radius - other.radius)
 
-        if distance == 0 and self.radius == other.radiusadius:
+        if distance == 0 and self.radius == other.radius:
             return RelativePostion.SAME
 
         if distance > radius_sum or distance < radius_difference:
             return RelativePostion.NO_COMMON_POINTS
 
-        if distance in [radius_sum, distance == radius_difference]:
+        if distance in [radius_sum, radius_difference]:
             return RelativePostion.TOUCHING
 
         return RelativePostion.INTERSECTING
