@@ -8,27 +8,11 @@ def test_create_point():
     point1 = Point(3.1, 3.5)
     assert isinstance(point1, Point)
 
-def test_create_invalid_point():
-    """Tests wrong creating of points"""
-    with pytest.raises(SystemExit) as pytest_wrapped_e:
-        Point('Gosho', 5.7)
-    assert pytest_wrapped_e.type == SystemExit
-
 def test_create_circle():
     """Tests creating of circle"""
     point = Point(5.4, 4.5)
     circle = Circle(point, 5.0)
     assert isinstance(circle, Circle)
-
-def test_create_invalid_circle():
-    """Tests wrong creating of circle"""
-    with pytest.raises(SystemExit) as pytest_wrapped_e:
-        Circle(5, 6)
-    assert pytest_wrapped_e.type == SystemExit
-    with pytest.raises(SystemExit) as pytest_wrapped_e:
-        point = Point(2.5, 9.7)
-        Circle(point, 'radius')
-    assert pytest_wrapped_e.type == SystemExit
 
 def test_distance():
     """Tests finding of distance"""
@@ -38,20 +22,6 @@ def test_distance():
     point1 = Point(2.0, -1.0)
     point2 = Point(-2.0, 2.0)
     assert distance(point1, point2) == 5.0
-
-def test_invalid_distance_arguments():
-    """Tests wrong finding of distance"""
-    with pytest.raises(SystemExit) as pytest_wrapped_e:
-        distance(2,3)
-    assert pytest_wrapped_e.type == SystemExit
-
-def test_find_realtive_position_invalid_arguments():
-    """Tests wrong finding of relative positions"""
-    with pytest.raises(SystemExit) as pytest_wrapped_e:
-        point = Point(5.6, 1.2)
-        circle = Circle(point, 7.8)
-        circle.find_relative_position('circle')
-    assert pytest_wrapped_e.type == SystemExit
 
 def test_no_common_points():
     """Tests relative position with no common points"""
