@@ -29,10 +29,10 @@ jobs:
       run: |
         cd homework_04
         cd 17_petar_damyanov
-        pytest tests.py
+        pytest test.py
     - name: Lint with pylint
       run: |
         cd homework_04
         cd 17_petar_damyanov
         pylint circles.py
-        pylint tests.py
+        pylint test.py
