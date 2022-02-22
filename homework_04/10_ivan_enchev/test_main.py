@@ -1,6 +1,6 @@
 """Pytests"""
 
-from main import *
+from main import RelativePosition, Point, Circle
 
 
 def test_no_common():
