@@ -1,5 +1,3 @@
-1. Създаване на canvas и инициализиране на героя
-2. Придвижване на героя през пространствотото
-3. Сблъскване с предмети
-4. Битка
-5. Торба и награда за победа.
+1. As a user I want to be able to move through space so that I can interact with the game
+2. As a user I want to be able to fight so that there is reason for my weapons / I can save the villagers from monsters. 
+3. As a user I want to be able to save my trophies because they are pretty.
