@@ -1,0 +1,42 @@
+
+name: Ivan Enchev Homework 4
+
+on:
+  push:
+    branches: [ main ]
+    paths: 
+      - homework_04/10_ivan_enchev/**
+  pull_request:
+    branches: [ main ]
+    paths: 
+      - homework_04/10_ivan_enchev/**
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.10"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Pytest
+      run: |
+        cd homework_04
+        cd 10_ivan_enchev
+        pytest tests.py
+        
+    - name: Pylint
+      run: |
+        cd homework_04
+        cd 10_ivan_enchev
+        pylint main.py
+        pylint test_main.py
+
