@@ -1,6 +1,5 @@
 """ Tests functions in homework.py"""
 
-import pytest #imports pytest
 from homework import Point, Circle, RelativePosition, distance #imports homework module
 
 def test_create_point():
