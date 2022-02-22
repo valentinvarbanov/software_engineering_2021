@@ -31,7 +31,7 @@ jobs:
       run: |
         cd homework_04
         cd 10_ivan_enchev
-        pytest tests.py
+        pytest
         
     - name: Pylint
       run: |
