@@ -42,5 +42,5 @@ jobs:
           cd homework_04/02_Angel_Stoyanov
           pylint circle.py
           pylint point.py
-          pylint relative_point.py
+          pylint relative_position.py
           pylint test_cirlce.py
