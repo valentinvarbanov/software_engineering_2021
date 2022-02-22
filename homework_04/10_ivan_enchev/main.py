@@ -1,15 +1,21 @@
+"""Task Logic"""
+
 from enum import Enum
 from math import fabs, sqrt
 
-#pylint: disable=R0903
 
-def find_distance(a, b):
-    sideA = fabs(a.x - b.x)
-    sideB = fabs(a.y - b.y)
+# pylint: disable=R0903
+
+def find_distance(point_a, point_b):
+    """Find distance between two points."""
+
+    sideA = fabs(point_a.x - point_b.x)
+    sideB = fabs(point_a.y - point_b.y)
     return sqrt((sideB * sideB) + (sideA * sideA))
 
 
 class RelativePosition(Enum):
+    """Relative points, part of the task"""
     NO_COMMON_POINTS = 1
     TOUCHING = 2
     INTERSECTING = 3
@@ -17,33 +23,37 @@ class RelativePosition(Enum):
 
 
 class Point:
-    def __init__(self, x, y) -> None:
-        assert isinstance(x, float)
-        assert isinstance(y, float)
-        self.x = x
-        self.y = y
+    """A class for a point in a cartesian coordinate system"""
+    def __init__(self, x_coord, y_coord) -> None:
+        assert isinstance(x_coord, float)
+        assert isinstance(y_coord, float)
+        self.x_coord = x_coord
+        self.y_coord = y_coord
 
 
 class Circle:
-    def __init__(self, X, r) -> None:
-        assert isinstance(X, Point)
-        assert isinstance(r, float)
-        self.X = X
-        self.r = r
+    """A class for a circle in a cartesian coordinate system"""
+    def __init__(self, center, radius) -> None:
+        assert isinstance(center, Point)
+        assert isinstance(radius, float)
+        self.center = center
+        self.radius = radius
 
     def find_relative_position(self, another):
+        """Find the position of one circle erlative to another one."""
         assert isinstance(another, Circle)
 
-        AB = find_distance(self.X, another.X)
+        line = find_distance(self.center, another.center)
         position = RelativePosition.SAME
 
-        if AB > (self.r + another.r):
+        if line > (self.radius + another.radius):
             position = RelativePosition.NO_COMMON_POINTS
 
-        elif AB == (self.r + another.r) or (AB == fabs((self.r - another.r)) and AB != 0):
+        elif line == (self.radius + another.radius) or (line == fabs((self.radius - another.radius)) and line != 0):
             position = RelativePosition.TOUCHING
 
-        elif (self.r + another.r) > AB > fabs((self.r - another.r)):
+        elif (self.radius + another.radius) > line > fabs((self.radius - another.radius)):
             position = RelativePosition.INTERSECTING
 
         return position
+
