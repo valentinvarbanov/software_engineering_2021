@@ -9,14 +9,15 @@ class RelativePosition(enum.Enum):
     INTERSECTING = 3
     SAME = 4
 
+# pylint: disable=R0903
 class Point():
     """Point class"""
     def __init__(self, _x_, _y_):
         self.x__ = float(_x_)
         self.y__ = float(_y_)
 
-    @classmethod
-    def distance_between_two_centers(self, center_1, center_2):
+    @staticmethod
+    def distance_between_two_centers(center_1, center_2):
         """Distance between two centers method"""
         return sqrt(pow((center_1.x__ - center_2.x__), 2) + pow((center_1.y__ - center_2.y__), 2))
 class Circle:
@@ -36,7 +37,8 @@ class Circle:
             return RelativePosition.NO_COMMON_POINTS
         if distance == sum_radiuses:
             return RelativePosition.TOUCHING
-        if sub_radiuses < distance and distance < sum_radiuses:
+        if sub_radiuses < distance < sum_radiuses:
             return RelativePosition.INTERSECTING
         if distance <= sub_radiuses or self.center == circle_2.center:
             return RelativePosition.SAME
+        return None
