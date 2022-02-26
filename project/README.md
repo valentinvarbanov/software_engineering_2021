@@ -18,7 +18,7 @@ Sun, 19 Dec 2021 23:59:59 +0300
 | E | Viktoriya Vasileva, Eliza Damgova | https://github.com/Vicktoria853/TeamAvatar_Unity_game |
 | F | Liliya Lyubenova, Angel Stoyanov | https://github.com/Lilly7777/FinanceDash |
 | G | Alexander Yordanov, Martin Vrachev | https://github.com/Alexander1022/DjangoForum |
-| H | Teodor Dishanski, Victor Dimitrov | https://github.com/Teodor1331/Software-Engineering-Project |
+| H | Teodor Dishanski, Victor Dimitrov | https://github.com/Teodor1331/Chess-Engine-Project |
 | I | Atanas Atanasov, Denis Zahariev, Martin Vayer | https://github.com/VayerMaking/brand-hive |
 
 
