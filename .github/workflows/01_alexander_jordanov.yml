@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version : ["3.7", "3.9", "3.10"]
+        python-version : ["3.8", "3.9", "3.10"]
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
@@ -25,7 +25,9 @@ jobs:
           architecture: "x64"
           
       - name: Install Dependencies
-        run: pip install -r requirements.txt
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
       - name: Changing Directory
         run: cd homework_04/01_Alexander_Yordanov
@@ -34,4 +36,4 @@ jobs:
         run: pytest
 
       - name: Run pylint
-        run: pylint *.py 
+        run: pylint main_task.py
