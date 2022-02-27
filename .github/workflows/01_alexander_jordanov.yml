@@ -2,11 +2,12 @@ name: Homework 04 - 01 Alexander Jordanov
 
 on:
   push:
-    branches: [main, 01_alexander_yordanov_hw_04]
+    branches: [main]
     paths:
       - homework_04/01_Alexander_Yordanov/**
+      
   pull_request:
-    branches: [main, 01_alexander_yordanov_hw_04]
+    branches: [main]
     paths:
       - homework_04/01_Alexander_Yordanov/**
 
