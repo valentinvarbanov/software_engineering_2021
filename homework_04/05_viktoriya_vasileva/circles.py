@@ -1,4 +1,9 @@
 # pylint: disable=invalid-name
+#pylint: disable=R0903
+#pylint: disable=C0303
+#pylint: disable=C0103
+#pylint: disable=R0911
+#pylint: disable=C1001
 """
     This module has Point and Circle classes
     The Circle class has function for finding
@@ -36,7 +41,7 @@ class Point:
 
     def line(self, point):
         """
-        Find the length og the line
+        Find the length of the line
         """
         assert isinstance(point, Point)
         result = round(math.sqrt(math.pow(point.x - self.x, 2) + math.pow(point.y - self.y, 2)), 5)
