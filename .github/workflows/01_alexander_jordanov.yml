@@ -31,9 +31,9 @@ jobs:
 
       - name: Changing Directory
         run: cd homework_04/01_Alexander_Yordanov
-
-      - name: Run pytest
-        run: pytest
-
+        
       - name: Run pylint
         run: pylint main_task.py
+        
+      - name: Run pytest
+        run: pytest
