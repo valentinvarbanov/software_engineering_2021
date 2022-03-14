@@ -2,14 +2,16 @@ name: Homework 04 - 01 Alexander Jordanov
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
     paths:
       - homework_04/01_Alexander_Yordanov/**
       
   pull_request:
-    branches: [main]
+    branches: [ main ]
     paths:
       - homework_04/01_Alexander_Yordanov/**
+      
+  workflow_dispatch:
 
 jobs:
   build:
