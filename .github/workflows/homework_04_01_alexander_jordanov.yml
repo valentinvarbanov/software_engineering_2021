@@ -33,7 +33,9 @@ jobs:
           pip install -r requirements.txt
 
       - name: Changing Directory
-        run: cd homework_04/01_Alexander_Yordanov
+        run: |
+          cd homework_04/01_Alexander_Yordanov
+          ls -l
         
       - name: Run pylint
         run: pylint main_task.py
