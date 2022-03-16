@@ -24,7 +24,7 @@ class RelativePosition(enum.Enum):
     #TOUCHING_INTERNALLY = 3
     SAME = 3
 
-class Point:
+class Point(object):
     """
         This class is point
         Point is used for coordinated system.
@@ -47,7 +47,7 @@ class Point:
         result = round(math.sqrt(math.pow(point.x - self.x, 2) + math.pow(point.y - self.y, 2)), 5)
         return result
 
-class Circle:
+class Circle(object):
     """
         Circle is point in coordinated system with radius
     """
