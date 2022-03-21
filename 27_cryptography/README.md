@@ -10,7 +10,7 @@
 
 The same key is used for encryption and decryption.
 
-Example: AES, DES, 3DES
+Commonly used algorithms: [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), [DES](https://en.wikipedia.org/wiki/Data_Encryption_Standard), [3DES](https://en.wikipedia.org/wiki/Triple_DES)
 
 ![](symmetric.png)
 
@@ -18,7 +18,7 @@ Example: AES, DES, 3DES
 
 Two keys exist that are the opposite of one another. One is used for encryption and the other for decryption. Also called public key cryptography due to the fact that one key is called public and the other private.
 
-Exmaples: RSA
+Exmaples: [RSA](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
 
 ![](asymmetric.png)
 
@@ -29,7 +29,7 @@ Resources:
 
   ## Diffie–Hellman algorithm
 
-  This is an algorithm for secret key exchange. This allows two parties to share a common encryption key without having a secure channel.
+  [Diffie-Hellman](https://en.wikipedia.org/wiki/Diffie–Hellman_key_exchange) is an algorithm for secret key exchange. This allows two parties to share a common encryption key without having a secure channel.
 
   ![](diffie_hellman.png)
 
