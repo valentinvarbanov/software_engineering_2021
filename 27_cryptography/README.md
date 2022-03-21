@@ -34,5 +34,5 @@ Resources:
   ![](diffie_hellman.png)
 
 Resources:
-    * [Diffie Hellman - YouTube](https://www.youtube.com/watch?v=NmM9HA2MQGI)
-    * [Key Exchange Problems - YouTube](https://www.youtube.com/watch?v=vsXMMT2CqqE)
+  * [Diffie Hellman - YouTube](https://www.youtube.com/watch?v=NmM9HA2MQGI)
+  * [Key Exchange Problems - YouTube](https://www.youtube.com/watch?v=vsXMMT2CqqE)
