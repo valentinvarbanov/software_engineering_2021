@@ -8,7 +8,8 @@ The input should be provided on the standard input:
 
 ```bash
 $ echo "It works!" | python encrypt.py 3 > encrypted
-$ cat encrypted | python 05_ivan_ivanov.py
+# WORKDIR is xx_firstname_lastname
+$ cat encrypted | python decrypt.py
 It works!
 key: 3
 ```
