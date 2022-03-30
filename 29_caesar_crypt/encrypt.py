@@ -39,63 +39,29 @@ def main():
                     help='options for the keys')
     parser.add_argument('--input', '-i', dest='filename',
                     help = 'options for the filename')
-    # parser.add_argument('strings', metavar='N', type=str, nargs='+',
-    #                 help='an integer for the accumulator')
-    # parser.add_argument('--sum', dest='accumulate', action='store_const',
-    #                 const=sum, default=max,
-    #                 help='sum the integers (default: find the max)')
+    parser.add_argument('--output', '-o', dest='fileoutput',
+                    help = 'options for the output file')
 
     args = parser.parse_args()
-    print(args.key)
-#print(args.accumulate(args.integers))
 
-    try:
-        if not 0 < args.key < 26:
-            print('Not a valid number!')
-            exit(-2)
-        if not args.filename:
-            str = input()
+    fd_in = sys.stdin
+    fd_out = sys.stdout
 
-            while str is not None:
-                print(encrypt(str, int(args.key)))
-                str = input()
-        else:
-            with open(args.filename, 'r') as file:
-                print(encrypt(file.read(), args.key))
-    except ValueError:
-        print('This is not a valid key!')
-        exit(-1)
-    except EOFError:
-        print('The program terminated!')
-        exit(-3)
+    if not 0 < args.key < 26:
+        print('Not a valid number!')
+        sys.exit(1)
 
-    # if len(argv) == 1:
-    #     try:
-    #         str = input()
-    #         while str  is not None:
-    #             print(encrypt(str, int(argv[0])))
-    #             str = input()
-    #     except EOFError:
-    #         pass
-    # elif len(argv) == 2:
-    #     f = open(argv[1], "r")
-    #     print(encrypt(f.read(), int(argv[0])))
-    #     f.close()
-    # elif len(argv) == 3:
-    #     f = open(argv[1], "r")
-    #     newFile = open(argv[2], "w")
-    #     newFile.write(encrypt(f.read(), int(argv[0])))
-    #     f.close()
-    #     newFile.close()
-    # else:
-    #     exit(-1)
+    if args.filename:
+        fd_in = open(args.filename, 'r')
 
+    if args.fileoutput:
+        fd_out = open(args.fileoutput, 'w')
+    
+    fd_out.write(encrypt(fd_in.read(), args.key))
 
-
-# print(encrypt_single_char('A', 3))
-# print(encrypt_single_char('Z', 3))
-# print(encrypt_single_char('a', 3))
-# print(encrypt_single_char('z', 3))
-# print(encrypt_single_char('!', 3))
+    if fd_in != sys.stdin:
+        fd_in.close()
+    if fd_out != sys.stdout:
+        fd_out.close()
 
 main()
