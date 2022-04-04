@@ -6,28 +6,28 @@ str = input()
 
 for i in range(0, -25, -1):
     for word in str.split():
-        correctWord = ""
+        correct_word = ""
         for char in word:
             if (64 < ord(char) < 91 or 96 < ord(char) < 123):
-                correctWord += chr(ord(char) + i)
-        if not wordnet.synsets(correctWord):
+                correct_word += chr(ord(char) + i)
+        if not wordnet.synsets(correct_word):
             break
         else:
             if word == str.split()[len(str.split())-1]:
                 key = -i
 
-newStr = ""
+new_str = ""
 for word in str.split():
-    correctWord = ""
+    correct_word = ""
     for char in word:
         if (64 < ord(char) < 91 or 96 < ord(char) < 123):
-            correctWord += chr(ord(char) - key)
+            correct_word += chr(ord(char) - key)
         else:
-            correctWord += char
+            correct_word += char
     if not word == str.split()[len(str.split())-1]:
-        newStr += correctWord + " "
+        new_str += correct_word + " "
     else:
-       newStr += correctWord 
+       new_str += correct_word 
 
-print(newStr)
+print(new_str)
 print(key)
