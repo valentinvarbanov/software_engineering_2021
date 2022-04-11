@@ -1,5 +1,5 @@
-from nltk.corpus import words
 import re
+import enchant
 
 UPPERCASE_A = ord('A')
 UPPERCASE_Z = ord('Z')
@@ -23,12 +23,14 @@ def decrypt_word(encrypt_word, key):
     return decrypted_word
 
 def check_word_valid(word):
-    word = re.sub(r'[^\w]', '', word.lower())
-    english_vocab = set(w.lower() for w in words.words())
-    if word in english_vocab:
-        return True
-    else:
-        return False
+    word = re.sub(r'[^\w]', ' ', word).strip()
+    english_vocab = enchant.Dict("en_US")
+
+    for sub_word in word.split(' '):
+        if not english_vocab.check(sub_word):
+            return False
+
+    return True
 
 def concat_result(result_words):
     result = ""
@@ -52,7 +54,7 @@ def decrypt():
                 break
         if len(result_words) == len(input_words):
             print(concat_result(result_words))
-            print(key)
+            print("key: " + str(key))
             return
 
 decrypt()
