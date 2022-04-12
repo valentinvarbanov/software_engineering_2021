@@ -18,7 +18,7 @@ Sun, 19 Dec 2021 23:59:59 +0300
 | E | Viktoriya Vasileva, Eliza Damgova | https://github.com/Vicktoria853/TeamAvatar_Unity_game |
 | F | Liliya Lyubenova, Angel Stoyanov | https://github.com/Lilly7777/FinanceDash |
 | G | Alexander Yordanov, Martin Vrachev | https://github.com/Alexander1022/DjangoForum |
-| H | Teodor Dishanski, Victor Dimitrov | https://github.com/Teodor1331/Software-Engineering-Project |
+| H | Teodor Dishanski, Victor Dimitrov | https://github.com/Teodor1331/Chess-Engine-Project |
 | I | Atanas Atanasov, Denis Zahariev, Martin Vayer | https://github.com/VayerMaking/brand-hive |
 
 
@@ -47,4 +47,21 @@ Create a demo ready first version of the project that will be shown in class.
 
 ```
 Tue, 11 Jan 2022 23:59:59 +0300
+```
+
+## Milestone 4 - Basic functionality
+
+Cover the basic functionality of the project. This includes the three stories that were created in Milestone 2.
+
+
+```
+Sun, 27 Feb 2022 23:59:59 +0300
+```
+
+## Milestone 5 - Final Version
+
+Complete project ready to be presented. 
+
+```
+Sun, 17 Apr 2022 23:59:59 +0300
 ```

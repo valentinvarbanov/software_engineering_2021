@@ -40,6 +40,6 @@ Create needed unit tests to confirm that your evaluation logic works. Unit tests
 Create a pull request and merge it into /tasks/xx_firstname_lastname/
 
 Example: 
- *  05_ivan_ivanov/
-    ** password.py
-    ** test_password.py
+* 05_ivan_ivanov/
+  * password.py
+  * test_password.py

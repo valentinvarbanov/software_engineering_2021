@@ -1,0 +1,39 @@
+name: Homework 04 - 16 Martin Vayer
+
+on:
+  push:
+    branches: [main, hw4_martin_vayer_16]
+    paths:
+      - homework_04/16_martin_vayer/**
+  pull_request:
+    branches: [main, hw4_martin_vayer_16]
+    paths:
+      - homework_04/16_martin_vayer/**
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.7", "3.9", "3.10"]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+          architecture: "x64"
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Change Directory
+        run: cd homework_04/16_martin_vayer
+
+      - name: Run pytest
+        run: pytest
+
+      - name: Run pylint
+        run: pylint *.py
