@@ -58,7 +58,7 @@ def decrypt_text():
                 break
         if len(result_words) == len(input_words):
             print(concat_result(result_words))
-            print(key)
+            print("key: "+ str(key))
             return
 
 decrypt_text()
