@@ -1,0 +1,46 @@
+name: Homework 04 - 02 Angel Stoyanov
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - homework_04/02_Angel_Stoyanov/**
+
+  pull_request:
+    branches: [ main ]
+    paths:
+      - homework_04/02_Angel_Stoyanov/**
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.8', '3.9', '3.10']
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+          architecture: 'x64'
+
+      - name: Install dependencies from requirements.txt
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run unit tests
+        run: |
+          cd homework_04/02_Angel_Stoyanov
+          pytest
+        
+      - name: Run Pylint
+        run: |
+          cd homework_04/02_Angel_Stoyanov
+          pylint circle.py
+          pylint point.py
+          pylint relative_position.py
+          pylint test_circle.py
