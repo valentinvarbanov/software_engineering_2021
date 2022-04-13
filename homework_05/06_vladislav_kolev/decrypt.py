@@ -50,13 +50,14 @@ def decrypt_text():
 
     for key in range(26):
         result_words = []
+        count_decrypted = 0
         for word in input_words:
             decrypted_word = decrypt_word(word, key)
+            result_words.append(decrypted_word)
             if check_is_word_valid(decrypted_word):
-                result_words.append(decrypted_word)
-            else:
-                break
-        if len(result_words) >= len(input_words)/2:
+                count_decrypted += 1
+            
+        if count_decrypted >= len(input_words)/2:
             print(concat_result(result_words))
             print("key: "+ str(key))
             return
