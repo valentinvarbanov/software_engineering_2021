@@ -56,7 +56,7 @@ def decrypt_text():
                 result_words.append(decrypted_word)
             else:
                 break
-        if len(result_words) == len(input_words):
+        if len(result_words) >= len(input_words)/2:
             print(concat_result(result_words))
             print("key: "+ str(key))
             return
