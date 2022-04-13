@@ -2,66 +2,90 @@ import os
 import subprocess
 import csv
 
-hw_sample_text = "It works!"
-hw_sample_key = 3
 
-echoMessage = "AI Dungeon is a free-to-play single-player and multiplayer text adventure game which uses artificial intelligence to generate content. It allows players to create and share their own custom adventure settings. The game's first version was made available on Colab in May 2019, and its second version (initially called AI Dungeon 2) was released online and for iOS and Android in December 2019. The AI model was then upgraded in July 2020."
+encryption_key_key = 'key'
+text_key = 'data'
+name_key = 'name'
 
-key = 7
+verification_data = [
+    {
+        name_key: 'sample',
+        encryption_key_key : 3,
+        text_key: 'It works!',
+    },
+    {
+        name_key: 'easy',
+        encryption_key_key : 19,
+        text_key: 'can not go any simpler than this',
+    },
+    {
+        name_key: 'medium',
+        encryption_key_key : 23,
+        text_key: 'Will CaPiTaLiZaTiOn break the homework',
+    },
+    {
+        name_key: 'special',
+        encryption_key_key : 13,
+        text_key: 'Or $p3c1al characters? Let\'s find out...',
+    },
+    {
+        name_key: 'advanced',
+        encryption_key_key : 7,
+        text_key: 'AI Dungeon is a free-to-play single-player and multiplayer text adventure game which uses artificial intelligence to generate content. It allows players to create and share their own custom adventure settings. The game\'s first version was made available on Colab in May 2019, and its second version (initially called AI Dungeon 2) was released online and for iOS and Android in December 2019. The AI model was then upgraded in July 2020.',
+    }
+]
 
-f = open('./results.csv', 'w')
-writer = csv.writer(f)
-header = ["name", "message 1", "key 1", "message 2", "key 2"]
+output_file = open('./results.csv', 'w')
+writer = csv.writer(output_file)
+header = ['name']
+
+for data_set in verification_data:
+    header.append(data_set[name_key])
+    header.append(f'{data_set[name_key]} key')
 
 writer.writerow(header)
 
 def get_homeworks():
-    # arr = next(os.walk("./"))[1]
     subfolders = [ f.path for f in os.scandir("./") if f.is_dir() ]
     return subfolders
-    # for i in os.walk("./")[1]:
-        # print(os.path.isdir(i))
 
 print(get_homeworks())
 
 for hw in get_homeworks():
-    sample_message_found = 0
-    sample_key_found = 0
-    checkMessage = 0
-    checkKey = 0
-    print(f"========= {hw} ===========")
-  
-    decrypted_output = os.popen(f'echo "{hw_sample_text}" | python encrypt.py --key "{hw_sample_key}" > encrypted && cat encrypted | python {hw}/decrypt.py').read()
+
+    name = hw
+    name_components = hw.split('_')
+
+    if len(name_components) == 3:
+        first = name_components[1].capitalize()
+        last = name_components[2].capitalize()
+        name = f'{first} {last}'
     
-    print("decrypted:")
-    print(decrypted_output)
+    csv_row = [name]
 
-    if hw_sample_text in decrypted_output:
-        sample_message_found = 1
-        print("Sample message decrypted successfully.")
+    print(f'----- {name} -----')
 
-    if f"key: {hw_sample_key}" in decrypted_output:
-        sample_key_found = 1
-        print("Sample key discovered.")
+    for data_set in verification_data:
+        key = data_set[encryption_key_key]
+        text = data_set[text_key]
 
-    echo = os.popen(f'echo "{echoMessage}" | python encrypt.py --key "{key}" > encrypted && cat encrypted | python {hw}/decrypt.py').read()
-    
-    print("decrypted:")
-    print(echo)
+        decrypted_output = os.popen(f'echo "{text}" | python encrypt.py --key "{key}" > encrypted && cat encrypted | python {hw}/decrypt.py').read()
 
-    if echoMessage in echo:
-        checkMessage = 1
-        print("Message decrypted successfully.")
+        decryption_success = 0
+        key_discovered = 0
 
-    if f"key: {key}" in echo:
-        checkKey = 1
-        print("Key was discovered.")
+        if text in decrypted_output:
+            decryption_success = 1
+        
+        if f'key: {key}' in decrypted_output:
+            key_discovered = 1
 
-    data = [hw, sample_message_found, sample_key_found, checkMessage, checkKey]
+        csv_row.append(decryption_success)
+        csv_row.append(key_discovered)
 
-    writer.writerow(data)
+        print(f'{data_set[name_key]}: key({key_discovered}) text({decryption_success})')
+        print(f'==>{decrypted_output}<==')
 
-    
-    print(f"========================================")
+    writer.writerow(csv_row)
 
-f.close()
+output_file.close()
