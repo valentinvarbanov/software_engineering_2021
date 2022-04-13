@@ -30,4 +30,4 @@ for word in str.split():
        newStr += correctWord 
 
 print(newStr)
-print(key)
+print("key:", key)
