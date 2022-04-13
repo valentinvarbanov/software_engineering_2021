@@ -48,7 +48,7 @@ def decrypt_text():
     input_text = input()
     input_words = input_text.split(' ')
 
-    for key in range(26):
+   for key in range(26):
         result_words = []
         count_decrypted = 0
         for word in input_words:
