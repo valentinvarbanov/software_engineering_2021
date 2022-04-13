@@ -37,7 +37,7 @@ def decrypt_text():
     decrypted_text = concat_decrypted_words(decrypted_words)
 
     print(decrypted_text)
-    print(right_key)
+    print(f"key: {right_key}")
 
 
 def concat_decrypted_words(decrypted_words):
