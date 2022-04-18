@@ -4,6 +4,8 @@ import re
 def decrypt():
     input_str = input()
     input_words = input_str.split(' ')
+    words_count = len(input_words)
+
     for key in range(26):
         result_words = []
         not_recognized = []
@@ -19,7 +21,9 @@ def decrypt():
         if len(result_words) == len(input_words):
             print_result(result_words, str(key))
             return
-        elif len(result_words) > 0:
+
+        elif len(result_words) > (0.5 * words_count):
+
             result_words = []
             for word in input_words:
                 dec_word = decrypt_word(word, key)
