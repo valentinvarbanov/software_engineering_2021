@@ -1,0 +1,38 @@
+name: Petar Damyanov Homework 04
+
+on:
+  push:
+    branches: [ main ]
+    paths: 
+      - homework_04/17_petar_damyanov/**
+  pull_request:
+    branches: [ main ]
+    paths: 
+      - homework_04/17_petar_damyanov/**
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.9"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Run unit tests
+      run: |
+        cd homework_04
+        cd 17_petar_damyanov
+        pytest test.py
+    - name: Lint with pylint
+      run: |
+        cd homework_04
+        cd 17_petar_damyanov
+        pylint circles.py
+        pylint test.py
