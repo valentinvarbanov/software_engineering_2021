@@ -23,14 +23,17 @@ for i in range(0, -25, -1):
                 result += i
                 if not (A_INTEGER <= result <= Z_INTEGER):
                     result += difference
+                correctWord += chr(result)
             elif a_INTEGER <= symbol_integer <= z_INTEGER:
                 result += i
                 if not (a_INTEGER <= result <= z_INTEGER):
                     result += difference
-            correctWord += chr(result)
+                correctWord += chr(result)
+            else:
+                correctWord += ''
         if wordnet.synsets(correctWord):
             counter += 1
-    if counter > (60/100)*len(str.split()):
+    if counter > (50/100)*len(str.split()):
         key = -i
         break
 
@@ -50,4 +53,4 @@ for symbol in str:
     newStr += chr(result)
 
 print(newStr)
-print("key:", key)
+print("key:", key) 
