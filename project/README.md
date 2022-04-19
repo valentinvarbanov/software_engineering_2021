@@ -57,3 +57,11 @@ Cover the basic functionality of the project. This includes the three stories th
 ```
 Sun, 27 Feb 2022 23:59:59 +0300
 ```
+
+## Milestone 5 - Final Version
+
+Complete project ready to be presented. 
+
+```
+Sun, 17 Apr 2022 23:59:59 +0300
+```

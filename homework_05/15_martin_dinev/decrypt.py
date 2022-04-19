@@ -53,4 +53,4 @@ for symbol in str:
     newStr += chr(result)
 
 print(newStr)
-print("key:", key) 
+print("key:", key)
