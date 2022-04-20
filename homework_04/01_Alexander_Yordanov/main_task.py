@@ -41,16 +41,12 @@ class Circle:
     '''
     Find the relative position function 
     '''
-
+    
     def find_relative_position(self, another_circle):
         assert isinstance(another_circle, Circle)
-
-        distance = math.sqrt((another_circle.center.x - self.center.x) ** 2 + \
-            (another_circle.center.y - self.center.y) ** 2)
-        
-        sumOfTheRadius = self.radius + another_circle.radius
-        subOfTheRadius = self.radius - another_circle.radius
-
+        distance = math.sqrt((another_circle.center.x - self.center.x) ** 2 + (another_circle.center.y - self.center.y) ** 2)
+        radiusSum = self.r + another_circle.r
+        radiusSub = self.r - another_circle.r
 
         '''
         All the case we have to check for positions.

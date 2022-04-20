@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'alexander_yordanov_01'
     'solution_00.apps.Solution00Config',
     'Liliya_Lyubenova_11',
     'ivan_enchev_10',

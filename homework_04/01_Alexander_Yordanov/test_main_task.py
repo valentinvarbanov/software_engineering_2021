@@ -38,15 +38,12 @@ def test_no_common_points():
 
     assert circle1.find_relative_position(circle2) == main_task.ReturnTypes.NO_COMMON_POINTS
 
-'''
-test if circles are touching each other - externally and internally
-'''
-
 def test_touching():
+  
     '''
     externally
     '''
-
+    
     circle1 = main_task.Circle(main_task.Point(1.0, 1.0), 3.0)
     circle2 = main_task.Circle(main_task.Point(5.0, 4.0), 2.0)
 
@@ -64,7 +61,6 @@ def test_touching():
 '''
 test if cirlces are intersecting each other
 '''
-
 def test_intersecting():
     circle1 = main_task.Circle(main_task.Point(1.0, 1.0), 1.0)
     circle2 = main_task.Circle(main_task.Point(1.5, 1.0), 1.0)
