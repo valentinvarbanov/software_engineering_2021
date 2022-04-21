@@ -39,7 +39,7 @@ def decrypt(encrypted_string):
 
 
 def apply_key(key):
-    decryptedString = ""
+    decrypted_string = ""
     for char in encrypted_string:
         symbol_integer = ord(char)
         result = symbol_integer
@@ -52,8 +52,8 @@ def apply_key(key):
             result -= key
             if not (int_a <= result <= int_z):
                 result += difference
-        decryptedString += chr(result)
-    return decryptedString
+        decrypted_string += chr(result)
+    return decrypted_string
 
 key = decrypt(encrypted_string)
 print(apply_key(key))
