@@ -1,53 +1,58 @@
-import string
-from nltk.corpus import wordnet, words
-from nltk import RegexpTokenizer, WordNetLemmatizer
+from nltk.corpus import words
+import re
 
 def validate_word(word):
-    tokenizer = RegexpTokenizer(r'\w+')
-    lemma = WordNetLemmatizer()
-
-    word_token = tokenizer.tokenize(word)[0]
-    lemma_word = lemma.lemmatize(tokenizer.tokenize(word)[0])	
-
-    if word_token.lower() in words.words() or wordnet.synsets(lemma_word):
+    word = re.sub(r'[^\w]', '', word.lower())
+    english_vocab = set(w.lower() for w in words.words())
+    if word in english_vocab:
         return True
     else:
         return False
 
-def decrypt_with_shift(text, shift):
-    decrypted_text = list(range(len(text)))
-    alphabet = string.ascii_lowercase
-    first_half = alphabet[:shift]
-    second_half = alphabet[shift:]
-    shifted_alphabet = second_half + first_half
-    
-    for i, letter in enumerate(text.lower()):
-
-        if letter in alphabet:
-            index = shifted_alphabet.index(letter)
-            original_letter = alphabet[index]
-            decrypted_text[i] = original_letter 
+def decrypt_a_single_word(word, key):
+    decrypted_word = ''
+    for letter in word:
+        decrypted_letter = ''
+        char_ord = ord(letter)
+        if not ((ord('a') <= char_ord <= ord('z')) or (ord('A') <= char_ord <= ord('Z'))):
+            decrypted_letter = letter
+        elif ord(letter.lower()) - key < ord('a'):
+            decrypted_letter = chr(char_ord + 26 - key)
         else:
-            decrypted_text[i] = letter
+            decrypted_letter = chr(char_ord - key)
+        decrypted_word += decrypted_letter
+    return decrypted_word
 
-    return "".join(decrypted_text)
+def print_res(words, key):
+    res = ''
+    for w in words:
+        res = res + w + ' '
+    print(res[:-1])
+    print("key: " + key)
 
-def decrypt(text):
-    for n in range(26):
-        result = []
-        msg = decrypt_with_shift(text, n)
-        msg = msg.split()
-        for i in msg:
-            if validate_word(i):
-                result.append(i)
-            else:
-                break
-        if len(result) == len(msg):
-            d = ""
-            for w in result:
-                d = d + " " + w
-            print(d.strip())
-            print(n)
+def decrypt(message):
+    text = message.split(' ')
+    words_count = len(text)
+
+    for key in range(26):
+        res_words = []
+        for word in text:
+            word_decrypted = decrypt_a_single_word(word, key)
+            if validate_word(word_decrypted):
+                res_words.append(word_decrypted)
+
+        if len(res_words) == len(text):
+            print_res(res_words, str(key))
+            return
+
+        elif len(res_words) > (0.5 * words_count):
+
+            res_words = []
+            for word in text:
+                word_decrypted = decrypt_a_single_word(word, key)
+                res_words.append(word_decrypted)
+            print_res(res_words, str(key))
+            return
  
 message = input()
 decrypt(message)
