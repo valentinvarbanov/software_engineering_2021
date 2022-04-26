@@ -16,7 +16,7 @@ Sun, 19 Dec 2021 23:59:59 +0300
 | C | Martin Damyanov, Stelian Todorichkov | https://github.com/marti456/Car-To-Do |
 | D | Vladislav Kolev, Petar Damianov | https://github.com/Vladikolev0321/DEX-For-NFT |
 | E | Viktoriya Vasileva, Eliza Damgova | https://github.com/Vicktoria853/TeamAvatar_Unity_game |
-| F | Liliya Lyubenova, Angel Stoyanov | https://github.com/Lilly7777/FinanceDash |
+| F | Liliya Lyubenova, Angel Stoyanov | https://github.com/Lilly7777/FinanceDash , https://github.com/Lilly7777/FinanceDash-Resource-Server |
 | G | Alexander Yordanov, Martin Vrachev | https://github.com/Alexander1022/DjangoForum |
 | H | Teodor Dishanski, Victor Dimitrov | https://github.com/Teodor1331/Chess-Engine-Project |
 | I | Atanas Atanasov, Denis Zahariev, Martin Vayer | https://github.com/VayerMaking/brand-hive |
