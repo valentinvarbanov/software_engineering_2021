@@ -27,7 +27,11 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           architecture: "x64"
-
+      
+      - name: Get-Pip Thing
+        run: |
+          python3 get-pip.py 
+          
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
