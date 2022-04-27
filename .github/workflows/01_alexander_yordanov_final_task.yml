@@ -1,0 +1,40 @@
+name: Final Task - 01 Alexander Yordanov
+
+on:
+  push:
+    branches: [ main ]
+    paths: 
+      - tasks/continuous_integration/01_alexander_yordanov/**
+
+  pull_request:
+    branches: [ main ]
+    paths: 
+      - tasks/continuous_integration/01_alexander_yordanov/**
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ "3.6", "3.7" ]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+          architecture: "x64"
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 pip install pylint
+
+      - name: Changing Directory
+        run: cd tasks/continuous_integration/01_alexander_yordanov
+
+      - name: Run Pylint
+        run: pylint code.py
