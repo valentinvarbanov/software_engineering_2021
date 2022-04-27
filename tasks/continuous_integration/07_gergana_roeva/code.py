@@ -1,52 +1,55 @@
+# pylint: disable=C0301
+# pylint: disable=C0303
+# pylint: disable=C0114
+# pylint: disable=C0116
+
 import os
-import subprocess
 import csv
 
+ENCRYPTION_KEY_KEY = 'key'
+TEXT_KEY = 'data'
+NAME_KEY = 'name'
 
-encryption_key_key = 'key'
-text_key = 'data'
-name_key = 'name'
-
-verification_data = [
+VERIFICATON_DATA = [
     {
-        name_key: 'sample',
-        encryption_key_key : 3,
-        text_key: 'It works!',
+        NAME_KEY: 'sample',
+        ENCRYPTION_KEY_KEY : 3,
+        TEXT_KEY: 'It works!',
     },
     {
-        name_key: 'easy',
-        encryption_key_key : 19,
-        text_key: 'can not go any simpler than this',
+        NAME_KEY: 'easy',
+        ENCRYPTION_KEY_KEY : 19,
+        TEXT_KEY: 'can not go any simpler than this',
     },
     {
-        name_key: 'medium',
-        encryption_key_key : 23,
-        text_key: 'Will CaPiTaLiZaTiOn break the homework',
+        NAME_KEY: 'medium',
+        ENCRYPTION_KEY_KEY : 23,
+        TEXT_KEY: 'Will CaPiTaLiZaTiOn break the homework',
     },
     {
-        name_key: 'special',
-        encryption_key_key : 13,
-        text_key: 'Or $p3c1al characters? Let\'s find out...',
+        NAME_KEY: 'special',
+        ENCRYPTION_KEY_KEY : 13,
+        TEXT_KEY: 'Or $p3c1al characters? Let\'s find out...',
     },
     {
-        name_key: 'advanced',
-        encryption_key_key : 7,
-        text_key: 'AI Dungeon is a free-to-play single-player and multiplayer text adventure game which uses artificial intelligence to generate content. It allows players to create and share their own custom adventure settings. The game\'s first version was made available on Colab in May 2019, and its second version (initially called AI Dungeon 2) was released online and for iOS and Android in December 2019. The AI model was then upgraded in July 2020.',
+        NAME_KEY: 'advanced',
+        ENCRYPTION_KEY_KEY : 7,
+        TEXT_KEY: 'AI Dungeon is a free-to-play single-player and multiplayer text adventure game which uses artificial intelligence to generate content. It allows players to create and share their own custom adventure settings. The game\'s first version was made available on Colab in May 2019, and its second version (initially called AI Dungeon 2) was released online and for iOS and Android in December 2019. The AI model was then upgraded in July 2020.',
     }
 ]
 
-output_file = open('./results.csv', 'w')
-writer = csv.writer(output_file)
-header = ['name']
+OUTPUT_FILE = open('./results.csv', 'w')
+WRITER = csv.writer(OUTPUT_FILE)
+HEADER = ['name']
 
-for data_set in verification_data:
-    header.append(data_set[name_key])
-    header.append(f'{data_set[name_key]} key')
+for data_set in VERIFICATON_DATA:
+    HEADER.append(data_set[NAME_KEY])
+    HEADER.append(f'{data_set[NAME_KEY]} key')
 
-writer.writerow(header)
+WRITER.writerow(HEADER)
 
 def get_homeworks():
-    subfolders = [ f.path for f in os.scandir("./") if f.is_dir() ]
+    subfolders = [f.path for f in os.scandir("./") if f.is_dir()]
     return subfolders
 
 print(get_homeworks())
@@ -65,9 +68,9 @@ for hw in get_homeworks():
 
     print(f'----- {name} -----')
 
-    for data_set in verification_data:
-        key = data_set[encryption_key_key]
-        text = data_set[text_key]
+    for data_set in VERIFICATON_DATA:
+        key = data_set[ENCRYPTION_KEY_KEY]
+        text = data_set[TEXT_KEY]
 
         decrypted_output = os.popen(f'echo "{text}" | python encrypt.py --key "{key}" > encrypted && cat encrypted | python {hw}/decrypt.py').read()
 
@@ -83,9 +86,9 @@ for hw in get_homeworks():
         csv_row.append(decryption_success)
         csv_row.append(key_discovered)
 
-        print(f'{data_set[name_key]}: key({key_discovered}) text({decryption_success})')
+        print(f'{data_set[NAME_KEY]}: key({key_discovered}) text({decryption_success})')
         print(f'==>{decrypted_output}<==')
 
-    writer.writerow(csv_row)
+    WRITER.writerow(csv_row)
 
-output_file.close()
+OUTPUT_FILE.close()
