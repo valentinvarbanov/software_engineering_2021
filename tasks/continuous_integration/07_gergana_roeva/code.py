@@ -1,10 +1,10 @@
-# pylint: disable=C0301
-# pylint: disable=C0303
 # pylint: disable=C0114
-# pylint: disable=C0116
-
 import os
 import csv
+
+# pylint: disable=C0301
+# pylint: disable=C0303
+# pylint: disable=C0116
 
 ENCRYPTION_KEY_KEY = 'key'
 TEXT_KEY = 'data'
