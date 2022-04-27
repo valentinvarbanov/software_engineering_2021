@@ -3,8 +3,8 @@ import os
 import csv
 
 # pylint: disable=C0301
-# pylint: disable=C0303
 # pylint: disable=C0103
+# pylint: disable=R1732
 
 ENCRYPTION_KEY_KEY = 'key'
 TEXT_KEY = 'data'
@@ -38,7 +38,7 @@ VERIFICATON_DATA = [
     }
 ]
 
-OUTPUT_FILE = open('./results.csv', 'w')
+OUTPUT_FILE = open('./results.csv', 'w', encoding="utf-8")
 WRITER = csv.writer(OUTPUT_FILE)
 HEADER = ['name']
 
@@ -49,6 +49,7 @@ for data_set in VERIFICATON_DATA:
 WRITER.writerow(HEADER)
 
 def get_homeworks():
+    """A dummy docstring."""
     subfolders = [f.path for f in os.scandir("./") if f.is_dir()]
     return subfolders
 
@@ -63,7 +64,6 @@ for hw in get_homeworks():
         first = name_components[1].capitalize()
         last = name_components[2].capitalize()
         name = f'{first} {last}'
-    
     csv_row = [name]
 
     print(f'----- {name} -----')
@@ -79,7 +79,6 @@ for hw in get_homeworks():
 
         if text in decrypted_output:
             decryption_success = 1
-        
         if f'key: {key}' in decrypted_output:
             key_discovered = 1
 
