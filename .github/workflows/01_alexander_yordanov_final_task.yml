@@ -31,11 +31,11 @@ jobs:
       - name: Get-Pip Thing
         run: |
           python3 get-pip.py 
-          
+
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
-          python3 -m pip install -r requirements.txt
+          python3 pip install pylint
 
       - name: Changing Directory
         run: cd tasks/continuous_integration/01_alexander_yordanov
