@@ -30,4 +30,5 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-        pylint *.py
+        cd tasks/continuous_integration/07_gergana_roeva/
+        pylint code.py
