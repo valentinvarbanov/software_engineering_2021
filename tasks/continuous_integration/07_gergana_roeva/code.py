@@ -4,7 +4,7 @@ import csv
 
 # pylint: disable=C0301
 # pylint: disable=C0303
-# pylint: disable=C0116
+# pylint: disable=C0103
 
 ENCRYPTION_KEY_KEY = 'key'
 TEXT_KEY = 'data'
