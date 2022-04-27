@@ -1,4 +1,4 @@
-name: task_ci_07_gergana_roeva .
+name: task_ci_07_gergana_roeva
 
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
