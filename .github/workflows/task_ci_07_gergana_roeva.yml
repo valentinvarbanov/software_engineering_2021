@@ -1,4 +1,4 @@
-name: task_ci_07_gergana_roeva .
+name: task_ci_07_gergana_roeva
 
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
@@ -26,8 +26,9 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
+        python -m pip install pip
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-        pylint cd tasks/continuous_integration/07_gergana_roeva
+        cd tasks/continuous_integration/07_gergana_roeva/
+        pylint code.py
